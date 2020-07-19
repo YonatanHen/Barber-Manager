@@ -8,6 +8,8 @@ namespace barberManager
 {
     interface IDataAccess
     {
-        public List<Person> loadPeople();
+        List<Person> LoadPeople();
+        List<Person> AddPeople();
+        List<Person> RemovePeople();
     }
 }
