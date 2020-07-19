@@ -1,0 +1,28 @@
+﻿<Window x:Name="main_window" x:Class="barberManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:barberManager"
+        mc:Ignorable="d"
+        Title="Barber Menu" Height="400" Width="750">
+    <Page x:Name="mainPage">
+    <Grid>
+        <Button x:Name="EnterBtn" Content="Enter" HorizontalAlignment="Left" Margin="299.6,248,0,0" VerticalAlignment="Top" Width="143" Height="38" Click="EnterBtn_Click" FontFamily="Viner Hand ITC" FontSize="20" Grid.Column="1"/>
+        <Label x:Name="title" Content="Barber Queue Manager" HorizontalAlignment="Left" Height="60" Margin="112.6,19,0,0" VerticalAlignment="Top" Width="451" RenderTransformOrigin="0.263,0.147" FontFamily="Showcard Gothic" FontSize="36" Cursor="SizeNS" Grid.Column="1">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.427"/>
+                    <RotateTransform Angle="0.486"/>
+                    <TranslateTransform X="0.385" Y="-0.902"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="unameTxt" Content="User name:" HorizontalAlignment="Left" Height="37" Margin="94.6,115,0,0" VerticalAlignment="Top" Width="125" FontFamily="Viner Hand ITC" FontSize="24" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" Height="31" Margin="278.6,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="24" Grid.Column="1"/>
+        <Label x:Name="unameTxt_Copy" Content="Password:" HorizontalAlignment="Left" Height="41" Margin="94.6,158,0,0" VerticalAlignment="Top" Width="117" FontFamily="Viner Hand ITC" FontSize="24" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" Height="31" Margin="278.6,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="24" RenderTransformOrigin="0.395,0.948" IsEnabled="False" Grid.Column="1"/>
+    </Grid>
+    </Page>
+</Window>
