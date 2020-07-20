@@ -13,7 +13,5 @@ namespace barberManager
     /// </summary>
     public partial class App : Application
     {
-        static string databaseName="users.db";
-        static string folderPath=Environment.GetEnvironmentVariable()
     }
 }

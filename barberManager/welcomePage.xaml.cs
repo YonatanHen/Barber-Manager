@@ -21,8 +21,10 @@ namespace barberManager
     /// </summary>
     public partial class MainWindow : Window 
     {
+        private DataAccess data;
         public MainWindow()
         {
+            data = new DataAccess();
             InitializeComponent();
         }
         private void EnterBtn_Click(object sender, RoutedEventArgs e)
