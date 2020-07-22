@@ -9,12 +9,12 @@ namespace barberManager
 {
     class DataAccess: IDataAccess
     {
-        public SQLiteConnection myConnection;
+        public SQLiteConnection conn;
 
         public DataAccess()
         {
-            myConnection = new SQLiteConnection("Data Source=Users.db");
-            Console.WriteLine("Databse connected");
+            conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db");
+            Console.WriteLine("Database connected");
         }
 
         public List<Person> AddPeople()
@@ -22,10 +22,37 @@ namespace barberManager
             throw new NotImplementedException();
         }
 
-        public List<Person> LoadPeople()
+        public bool isPersonExist(string username,string password)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            SQLiteDataReader sqlite_datareader;
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = "SELECT * FROM users WHERE username='"+username+"' AND "+"password="+password;
+            try
+            {
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            while (sqlite_datareader.Read())
+            {
+                string myreader = sqlite_datareader.GetString(0);
+                Console.WriteLine(myreader);
+            }
+            conn.Close();
+            if (sqlite_datareader!=null) return true;
+            return false;
+    }
 
         public List<Person> RemovePeople()
         {

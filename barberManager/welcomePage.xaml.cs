@@ -29,7 +29,13 @@ namespace barberManager
         }
         private void EnterBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new mainMenu(this.Content,this);
+            if (data.isPersonExist(unameBox.Text, passwordBox.Text)) this.Content = new mainMenu(this.Content, this);
+            else MessageBox.Show("Illegal Password/username");
+        }
+
+        private void PasswordBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

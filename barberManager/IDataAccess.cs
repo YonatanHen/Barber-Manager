@@ -8,7 +8,7 @@ namespace barberManager
 {
     interface IDataAccess
     {
-        List<Person> LoadPeople();
+        bool isPersonExist(string username, string password);
         List<Person> AddPeople();
         List<Person> RemovePeople();
     }

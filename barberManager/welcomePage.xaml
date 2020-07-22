@@ -20,9 +20,9 @@
             </Label.RenderTransform>
         </Label>
         <Label x:Name="unameTxt" Content="User name:" HorizontalAlignment="Left" Height="37" Margin="94.6,115,0,0" VerticalAlignment="Top" Width="125" FontFamily="Viner Hand ITC" FontSize="24" Grid.Column="1"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="278.6,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="24" Grid.Column="1"/>
+        <TextBox x:Name="unameBox" HorizontalAlignment="Left" Height="31" Margin="278.6,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="24" Grid.Column="1"/>
         <Label x:Name="unameTxt_Copy" Content="Password:" HorizontalAlignment="Left" Height="41" Margin="94.6,158,0,0" VerticalAlignment="Top" Width="117" FontFamily="Viner Hand ITC" FontSize="24" Grid.Column="1"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="278.6,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="24" RenderTransformOrigin="0.395,0.948" IsEnabled="False" Grid.Column="1"/>
+        <TextBox x:Name="passwordBox" HorizontalAlignment="Left" Height="31" Margin="278.6,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="24" Grid.Column="1"/>
     </Grid>
     </Page>
 </Window>
