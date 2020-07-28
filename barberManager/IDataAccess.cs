@@ -9,7 +9,7 @@ namespace barberManager
     interface IDataAccess
     {
         bool isPersonExist(string username, string password);
-        List<Person> AddPeople();
+        void AddPerson(string textQuery, string tableName);
         List<Person> RemovePeople();
     }
 }

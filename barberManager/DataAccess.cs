@@ -17,9 +17,20 @@ namespace barberManager
             Console.WriteLine("Database connected");
         }
 
-        public List<Person> AddPeople()
+        public void AddPerson(string textQuery,string tableName)
         {
-            throw new NotImplementedException();
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            SQLiteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO " + tableName + textQuery;
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         public bool isPersonExist(string username,string password)
@@ -33,12 +44,12 @@ namespace barberManager
                 Console.WriteLine(ex);
             }
             SQLiteDataReader sqlite_datareader;
-            SQLiteCommand sqlite_cmd;
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = "SELECT * FROM users WHERE username='"+username+"' AND "+"password="+password;
+            SQLiteCommand cmd;
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM users WHERE username='"+username+"' AND "+"password="+password;
             try
             {
-                sqlite_datareader = sqlite_cmd.ExecuteReader();
+                sqlite_datareader = cmd.ExecuteReader();
             }
             catch(Exception ex)
             {

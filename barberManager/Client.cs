@@ -8,9 +8,9 @@ namespace barberManager
 {
     class Client : Person
     {
-        DateTime appointment;
+        DateTime? appointment;
         string name;
-        public Client(DateTime appointment, string name)
+        public Client(DateTime? appointment, string name)
         {
             this.appointment = appointment;
             this.name = name;

@@ -7,11 +7,21 @@
         mc:Ignorable="d"
         Title="Schedule Meeting" Height="450" Width="800">
     <Page x:Name="ScheduleMeeting">
-        <Grid>
-        <Label Content="Date:" HorizontalAlignment="Left" Margin="304,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
-        <TextBox x:Name="DateBox" HorizontalAlignment="Left" Height="23" Margin="360,67,0,0" TextWrapping="Wrap"
+        <Grid Margin="2,0,-2.4,0">
+            <Label Content="Date:" HorizontalAlignment="Left" Margin="283,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
+            <TextBox x:Name="DateBox" HorizontalAlignment="Left" Height="23" Margin="359,81,0,0" TextWrapping="Wrap"
                  VerticalAlignment="Top" Width="120" FontSize="18"/>
+            <Label Content="name:" HorizontalAlignment="Left" Margin="283,124,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
+            <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="359,134,0,0" TextWrapping="Wrap"
+            VerticalAlignment="Top" Width="120" FontSize="18"/>
+            <Label Content="start:" HorizontalAlignment="Left" Margin="283,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
+            <TextBox x:Name="StartBox" HorizontalAlignment="Left" Height="23" Margin="359,190,0,0" TextWrapping="Wrap"
+                VerticalAlignment="Top" Width="120" FontSize="18"/>
+            <Label Content="end:" HorizontalAlignment="Left" Margin="283,238,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
+            <TextBox x:Name="EndBox" HorizontalAlignment="Left" Height="23" Margin="359,248,0,0" TextWrapping="Wrap"
+                VerticalAlignment="Top" Width="120" FontSize="18"/>
+            <Button Content="Add" HorizontalAlignment="Left" Margin="378,350,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
-    </Grid>
+        </Grid>
     </Page>
 </Window>
