@@ -33,5 +33,12 @@ namespace barberManager
         {
             mainWindow.Content = _content;
         }
+
+        private void calendar_MouseDoubleClick(Object sender, SelectionChangedEventArgs e)
+        {
+            ScheduleMeetingWin meetingWin = new ScheduleMeetingWin(Calendar.SelectedDate);
+            meetingWin.Show();
+            Console.WriteLine(Calendar.SelectedDate.ToString());
+        }
     }
 }

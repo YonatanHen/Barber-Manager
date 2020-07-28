@@ -1,0 +1,17 @@
+﻿<Window x:Class="barberManager.ScheduleMeetingWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:barberManager"
+        mc:Ignorable="d"
+        Title="Schedule Meeting" Height="450" Width="800">
+    <Page x:Name="ScheduleMeeting">
+        <Grid>
+        <Label Content="Date:" HorizontalAlignment="Left" Margin="304,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
+        <TextBox x:Name="DateBox" HorizontalAlignment="Left" Height="23" Margin="360,67,0,0" TextWrapping="Wrap"
+                 VerticalAlignment="Top" Width="120" FontSize="18"/>
+
+    </Grid>
+    </Page>
+</Window>
