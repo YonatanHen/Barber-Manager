@@ -8,19 +8,28 @@
         Title="Schedule Meeting" Height="450" Width="800">
     <Page x:Name="ScheduleMeeting">
         <Grid Margin="2,0,-2.4,0">
-            <Label Content="Date:" HorizontalAlignment="Left" Margin="283,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
-            <TextBox x:Name="DateBox" HorizontalAlignment="Left" Height="23" Margin="359,81,0,0" TextWrapping="Wrap"
+            <Label Content="Date:" HorizontalAlignment="Left" Margin="121,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
+            <TextBox x:Name="DateBox" HorizontalAlignment="Left" Height="23" Margin="197,58,0,0" TextWrapping="Wrap"
                  VerticalAlignment="Top" Width="120" FontSize="18"/>
-            <Label Content="name:" HorizontalAlignment="Left" Margin="283,124,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
-            <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="359,134,0,0" TextWrapping="Wrap"
+            <Label Content="name:" HorizontalAlignment="Left" Margin="121,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
+            <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="197,111,0,0" TextWrapping="Wrap"
             VerticalAlignment="Top" Width="120" FontSize="18"/>
-            <Label Content="start:" HorizontalAlignment="Left" Margin="283,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
-            <TextBox x:Name="StartBox" HorizontalAlignment="Left" Height="23" Margin="359,190,0,0" TextWrapping="Wrap"
+            <Label Content="start:" HorizontalAlignment="Left" Margin="121,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
+            <TextBox x:Name="StartBox" HorizontalAlignment="Left" Height="23" Margin="197,168,0,0" TextWrapping="Wrap"
                 VerticalAlignment="Top" Width="120" FontSize="18"/>
-            <Label Content="end:" HorizontalAlignment="Left" Margin="283,238,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
-            <TextBox x:Name="EndBox" HorizontalAlignment="Left" Height="23" Margin="359,248,0,0" TextWrapping="Wrap"
+            <Label Content="end:" HorizontalAlignment="Left" Margin="121,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18"/>
+            <TextBox x:Name="EndBox" HorizontalAlignment="Left" Height="23" Margin="197,225,0,0" TextWrapping="Wrap"
                 VerticalAlignment="Top" Width="120" FontSize="18"/>
             <Button Content="Add" HorizontalAlignment="Left" Margin="378,350,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+            <ListView x:Name="listView1" HorizontalAlignment="Left" Height="268" Margin="363,51,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="ListView_SelectionChanged" BorderBrush="#FF4A515C" Foreground="#FF1D5BFF" Background="#FFFAF9F9" RenderTransformOrigin="0.479,0.554">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Start" Width="90" DisplayMemberBinding="{Binding Start}"/>
+                        <GridViewColumn Header="End" Width="90" DisplayMemberBinding="{Binding End}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
         </Grid>
     </Page>

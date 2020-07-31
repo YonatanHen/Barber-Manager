@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.Data;
 
 namespace barberManager
 {
@@ -68,6 +69,18 @@ namespace barberManager
         public List<Person> RemovePeople()
         {
             throw new NotImplementedException();
+        }
+
+        public DataTable getData(string tableName,string date)
+        {
+            if (tableName == "clients")
+            {
+                DataTable dt = new DataTable();
+                SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT name,start,end FROM clients WHERE date='" + date + "'",conn);
+                da.Fill(dt);
+                return dt;
+            }
+            return null;
         }
     }
 }
