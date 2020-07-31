@@ -42,7 +42,7 @@ public partial class ScheduleMeetingWin : Window
             for (int i = 0; i < dTable.Rows.Count; i++)
             {
                 DataRow drow = dTable.Rows[i];
-                listView1.Items.Add(new Client { Name=drow["name"].ToString(),
+                listView1.Items.Add(new Client(Name = drow["name"].ToString()) { Name=drow["name"].ToString(),
                 Start=drow["start"].ToString(),
                 End=drow["end"].ToString() });
             }
@@ -52,6 +52,7 @@ public partial class ScheduleMeetingWin : Window
         {
             //Convert appointment start time to dateTime time.
             selectedDate = DateTime.ParseExact(StartBox.Text, "HH:mm", null, System.Globalization.DateTimeStyles.None);
+            bool t=data.isAppointmentPossible(DateBox.Text, StartBox.Text, EndBox.Text);
             data.AddPerson("(name,date,start,end) VALUES ('"+ NameBox.Text +"','" + DateBox.Text + 
                 "','" + StartBox.Text + "','" + EndBox.Text +"')", "clients");
 

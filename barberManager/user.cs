@@ -10,10 +10,9 @@ namespace barberManager
     {
         private string uname;
         private string password;
-        public User(string password, string uname):base()
+        public User(string password, string uname):base(uname)
         {
             this.password = password;
-            this.uname = uname;
         }
         string Password { get; set; } //NOTE: access it with objectname.Password
         string Uname { get; set; }

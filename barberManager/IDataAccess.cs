@@ -10,6 +10,7 @@ namespace barberManager
     interface IDataAccess
     {
         bool isPersonExist(string username, string password);
+        bool isAppointmentPossible(string date,string start,string end);
         void AddPerson(string textQuery, string tableName);
         DataTable getData(string tableName,string date);
         List<Person> RemovePeople();

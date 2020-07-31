@@ -59,7 +59,6 @@ namespace barberManager
             while (sqlite_datareader.Read())
             {
                 string myreader = sqlite_datareader.GetString(0);
-                Console.WriteLine(myreader);
             }
             conn.Close();
             if (sqlite_datareader!=null) return true;
@@ -81,6 +80,30 @@ namespace barberManager
                 return dt;
             }
             return null;
+        }
+
+        public bool isAppointmentPossible(string date, string start,string end)
+        {
+            conn.Open();
+            SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
+            sqCommand.CommandText = "SELECT * FROM clients WHERE date='" + date + "'";
+            SQLiteDataReader sqReader = sqCommand.ExecuteReader();
+            try
+            {
+                // Always call Read before accessing data.
+                while (sqReader.Read())
+                {
+                    //TODO: check immpossible combinations of hours, but first convert to dateTime
+                    Console.WriteLine(sqReader.GetString(2) + " " + sqReader.GetString(3));
+                }
+            }
+            finally
+            {
+                // always call Close when done reading.
+                sqReader.Close();
+                conn.Close();
+            }
+            return false;
         }
     }
 }

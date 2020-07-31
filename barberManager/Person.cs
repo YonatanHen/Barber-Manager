@@ -8,6 +8,7 @@ namespace barberManager
 {
     abstract class Person
     {
-        public Person() { }
+        string name;
+        public Person(string name) { this.name = name; }
     }
 }
