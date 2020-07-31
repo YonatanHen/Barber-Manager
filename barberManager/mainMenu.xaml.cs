@@ -40,5 +40,10 @@ namespace barberManager
             meetingWin.Show();
             Console.WriteLine(Calendar.SelectedDate.ToString());
         }
+
+        private void MenuItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
     }
 }

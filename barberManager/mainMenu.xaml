@@ -5,19 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:barberManager"
       mc:Ignorable="d" d:DesignWidth="800"
-      Title="mainMenu" Height="382.8">
+      Title="mainMenu">
 
-    <Grid Margin="0,0,0,10.4">
+    <Grid Margin="0,0,0,0.8">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FFDBDC1E" Offset="0.341"/>
+                <GradientStop Color="White"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Content="Go back" HorizontalAlignment="Left" Margin="242,296.866,0,0" VerticalAlignment="Top" Width="82" Click="Button_Click" Height="35" FontSize="16" Foreground="#FFE8E332" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0,0" HorizontalContentAlignment="Center" UseLayoutRounding="False" BorderThickness="1">
+        <Button Content="Go back" HorizontalAlignment="Left" Margin="242,296.866,0,0" VerticalAlignment="Top" Width="71" Click="Button_Click" Height="33" FontSize="16" Foreground="#FFE4E4E4" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0,0" HorizontalContentAlignment="Center" UseLayoutRounding="False" BorderThickness="1" BorderBrush="{x:Null}" VerticalContentAlignment="Center" Background="DimGray">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -26,142 +26,74 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
         </Button>
-        <DockPanel HorizontalAlignment="Left" Height="450" LastChildFill="False" VerticalAlignment="Top" Width="182" Margin="0,0,0,-0.4">
-            <Menu Height="195" VerticalAlignment="Top" Width="186">
-                <Menu.Background>
+        <Menu Height="113" VerticalAlignment="Top" Margin="1,-1,515,0" >
+            <MenuItem Header="Update Appointment" Foreground="#FFE8E8E8" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="284" FontSize="18" FontFamily="Showcard Gothic" BorderBrush="White" MouseMove="MenuItem_MouseMove">
+                <MenuItem.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
                         <GradientStop Color="Black" Offset="1"/>
                     </LinearGradientBrush>
-                </Menu.Background>
-                <Menu.Foreground>
+                </MenuItem.Background>
+                <MenuItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0.127"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.031"/>
+                    </TransformGroup>
+                </MenuItem.RenderTransform>
+            </MenuItem>
+            <MenuItem Header="Remove Appointment" Foreground="#FFE8E8E8" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="284" FontSize="18" FontFamily="Showcard Gothic" BorderBrush="White" MouseMove="MenuItem_MouseMove">
+                <MenuItem.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="#FF741414" Offset="1"/>
+                        <GradientStop Color="Black" Offset="1"/>
                     </LinearGradientBrush>
-                </Menu.Foreground>
-                <MenuItem Cursor="None" Header="Schedule" Foreground="#FFEBFF00" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="186" FontSize="18" FontFamily="Showcard Gothic">
-                    <MenuItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </MenuItem.Background>
-                    <MenuItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="0.127"/>
-                            <RotateTransform/>
-                            <TranslateTransform X="-0.031"/>
-                        </TransformGroup>
-                    </MenuItem.RenderTransform>
-                </MenuItem>
-                <MenuItem Cursor="None" Header="Add new client" Foreground="#FFEBFF00" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="186" FontSize="18" FontFamily="Showcard Gothic">
-                    <MenuItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </MenuItem.Background>
-                    <MenuItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="0.127"/>
-                            <RotateTransform/>
-                            <TranslateTransform X="-0.031"/>
-                        </TransformGroup>
-                    </MenuItem.RenderTransform>
-                </MenuItem>
-                <MenuItem Cursor="None" Header="Update client" Foreground="#FFEBFF00" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="186" FontSize="18" FontFamily="Showcard Gothic">
-                    <MenuItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </MenuItem.Background>
-                    <MenuItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="0.127"/>
-                            <RotateTransform/>
-                            <TranslateTransform X="-0.031"/>
-                        </TransformGroup>
-                    </MenuItem.RenderTransform>
-                </MenuItem>
-                <MenuItem Cursor="None" Header="Add new barber" Foreground="#FFEBFF00" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="186" FontSize="18" FontFamily="Showcard Gothic">
-                    <MenuItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </MenuItem.Background>
-                    <MenuItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="0.127"/>
-                            <RotateTransform/>
-                            <TranslateTransform X="-0.031"/>
-                        </TransformGroup>
-                    </MenuItem.RenderTransform>
-                </MenuItem>
-                <MenuItem Cursor="None" Header="Remove client" Foreground="#FFEBFF00" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="186" FontSize="18" FontFamily="Showcard Gothic">
-                    <MenuItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </MenuItem.Background>
-                    <MenuItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="0.127"/>
-                            <RotateTransform/>
-                            <TranslateTransform X="-0.031"/>
-                        </TransformGroup>
-                    </MenuItem.RenderTransform>
-                </MenuItem>
-                <MenuItem Cursor="None" Header="Remove barber" Foreground="#FFEBFF00" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="186" FontSize="18" FontFamily="Showcard Gothic">
-                    <MenuItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </MenuItem.Background>
-                    <MenuItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="0.127"/>
-                            <RotateTransform/>
-                            <TranslateTransform X="-0.031"/>
-                        </TransformGroup>
-                    </MenuItem.RenderTransform>
-                </MenuItem>
-                <MenuItem Cursor="None" Header="info" Foreground="#FFEBFF00" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="186" FontSize="18" FontFamily="Showcard Gothic">
-                    <MenuItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </MenuItem.Background>
-                    <MenuItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="0.127"/>
-                            <RotateTransform/>
-                            <TranslateTransform X="-0.031"/>
-                        </TransformGroup>
-                    </MenuItem.RenderTransform>
-                </MenuItem>
-            </Menu>
-        </DockPanel>
-        <Button Content="Exit" HorizontalAlignment="Left" Margin="534.6,297.666,0,0" VerticalAlignment="Top" Width="82" Click="Button_Click" Height="35" FontSize="16" Foreground="#FFE8E332" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0,0" HorizontalContentAlignment="Center" UseLayoutRounding="False" BorderThickness="1">
+                </MenuItem.Background>
+                <MenuItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0.127"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.031"/>
+                    </TransformGroup>
+                </MenuItem.RenderTransform>
+            </MenuItem>
+            <MenuItem Header="Add new barber" Foreground="#FFE8E8E8" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="284" FontSize="18" FontFamily="Showcard Gothic" BorderBrush="White" MouseMove="MenuItem_MouseMove">
+                <MenuItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </MenuItem.Background>
+                <MenuItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0.127"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.031"/>
+                    </TransformGroup>
+                </MenuItem.RenderTransform>
+            </MenuItem>
+            <MenuItem Header="Remove barber" Foreground="#FFE8E8E8" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="284" FontSize="18" FontFamily="Showcard Gothic" BorderBrush="White" MouseMove="MenuItem_MouseMove">
+                <MenuItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </MenuItem.Background>
+                <MenuItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0.127"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.031"/>
+                    </TransformGroup>
+                </MenuItem.RenderTransform>
+            </MenuItem>
+        </Menu>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="534.6,297.666,0,0" VerticalAlignment="Top" Width="71" Click="Button_Click" Height="33" FontSize="16" Foreground="#FFE4E4E4" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0,0" HorizontalContentAlignment="Center" UseLayoutRounding="False" BorderThickness="1" BorderBrush="{x:Null}" VerticalContentAlignment="Center" Background="DimGray">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -170,14 +102,8 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
         </Button>
-        <Calendar x:Name="Calendar" RenderTransformOrigin="0.531,0.498" UseLayoutRounding="True" Cursor="Arrow" FontSize="14" FontFamily="Impact" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Animated" AllowDrop="True" Background="#FFC0C0A0" SelectedDatesChanged="calendar_MouseDoubleClick" Margin="253,63,222,108.6" Foreground="#FF3C3C3C">
+        <Calendar x:Name="Calendar" RenderTransformOrigin="0.531,0.498" UseLayoutRounding="True" Cursor="Arrow" FontSize="14" FontFamily="Impact" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Animated" AllowDrop="True" Background="#FFDADADA" SelectedDatesChanged="calendar_MouseDoubleClick" Margin="323,61,201,67.4" Foreground="{x:Null}" BorderBrush="{x:Null}" AutomationProperties.HelpText="dfdfd">
             <Calendar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -186,14 +112,6 @@
                     <TranslateTransform X="-3.061" Y="-0.017"/>
                 </TransformGroup>
             </Calendar.RenderTransform>
-            <Calendar.BorderBrush>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
-                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
-                    <GradientStop Color="#FF718597" Offset="0.375"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Calendar.BorderBrush>
         </Calendar>
     </Grid>
-</Page>
+    </Page>

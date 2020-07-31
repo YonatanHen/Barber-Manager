@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:barberManager"
         mc:Ignorable="d"
-        Title="Barber Menu" Height="421.6" Width="750">
+        ResizeMode="NoResize"
+        Title="Barber Menu" Height="421.6" Width="750" Icon="logo.png">
     <Page x:Name="mainPage">
         <Grid>
             <Button x:Name="EnterBtn" Content="Enter" HorizontalAlignment="Left" Margin="300,288,0,0" VerticalAlignment="Top" Width="143" Height="38" Click="EnterBtn_Click" FontFamily="Viner Hand ITC" FontSize="20"/>
@@ -23,6 +24,7 @@
             <TextBox x:Name="unameBox" HorizontalAlignment="Left" Height="31" Margin="278.6,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="24" Grid.Column="1"/>
             <Label x:Name="unameTxt_Copy" Content="Password:" HorizontalAlignment="Left" Height="41" Margin="95,177,0,0" VerticalAlignment="Top" Width="117" FontFamily="Viner Hand ITC" FontSize="24"/>
             <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="31" Margin="278,191,0,0" VerticalAlignment="Top" Width="188" FontSize="24"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="540,121,0,0" VerticalAlignment="Top" Width="100" Source="logo.png"/>
         </Grid>
     </Page>
 </Window>
