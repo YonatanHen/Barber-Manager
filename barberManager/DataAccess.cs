@@ -88,13 +88,18 @@ namespace barberManager
             SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
             sqCommand.CommandText = "SELECT * FROM clients WHERE date='" + date + "'";
             SQLiteDataReader sqReader = sqCommand.ExecuteReader();
+            TimeSpan startTime = TimeSpan.Parse(start);
+            TimeSpan endTime = TimeSpan.Parse(end);
             try
             {
                 // Always call Read before accessing data.
                 while (sqReader.Read())
                 {
                     //TODO: check immpossible combinations of hours, but first convert to dateTime
-                    Console.WriteLine(sqReader.GetString(2) + " " + sqReader.GetString(3));
+                    TimeSpan readedStart = TimeSpan.Parse(sqReader.GetString(2));
+                    TimeSpan readedEnd = TimeSpan.Parse(sqReader.GetString(3));
+                    if ((startTime >= readedStart && startTime <= readedEnd) || (endTime >= readedStart && endTime <= readedEnd)) return false;
+                    //Console.WriteLine(sqReader.GetString(2) + " " + sqReader.GetString(3));
                 }
             }
             finally
@@ -103,7 +108,7 @@ namespace barberManager
                 sqReader.Close();
                 conn.Close();
             }
-            return false;
+            return true;
         }
     }
 }

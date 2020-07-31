@@ -52,9 +52,14 @@ public partial class ScheduleMeetingWin : Window
         {
             //Convert appointment start time to dateTime time.
             selectedDate = DateTime.ParseExact(StartBox.Text, "HH:mm", null, System.Globalization.DateTimeStyles.None);
-            bool t=data.isAppointmentPossible(DateBox.Text, StartBox.Text, EndBox.Text);
-            data.AddPerson("(name,date,start,end) VALUES ('"+ NameBox.Text +"','" + DateBox.Text + 
-                "','" + StartBox.Text + "','" + EndBox.Text +"')", "clients");
+            if (data.isAppointmentPossible(DateBox.Text, StartBox.Text, EndBox.Text))
+            {
+                data.AddPerson("(name,date,start,end) VALUES ('" + NameBox.Text + "','" + DateBox.Text +
+                    "','" + StartBox.Text + "','" + EndBox.Text + "')", "clients");
+                this.Close();
+            }
+            //Show message,don't set an appointment and don't exit from window
+            else MessageBox.Show("Illegal hour selected, appointmentes colliding!");
 
         }
         
