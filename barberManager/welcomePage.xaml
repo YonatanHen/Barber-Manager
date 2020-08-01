@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:barberManager"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Barber Menu" Height="421.6" Width="750" Icon="logo.png">
+        Title="Barber Menu" Height="450" Width="750" Icon="logo.png">
     <Page x:Name="mainPage">
         <Grid>
             <Button x:Name="EnterBtn" Content="Enter" HorizontalAlignment="Left" Margin="300,288,0,0" VerticalAlignment="Top" Width="143" Height="38" Click="EnterBtn_Click" FontFamily="Viner Hand ITC" FontSize="20"/>

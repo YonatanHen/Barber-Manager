@@ -41,9 +41,9 @@ namespace barberManager
             Console.WriteLine(Calendar.SelectedDate.ToString());
         }
 
-        private void MenuItem_MouseMove(object sender, MouseEventArgs e)
+        private void remAndupdUser(object sender, RoutedEventArgs e)
         {
-            
+
         }
     }
 }

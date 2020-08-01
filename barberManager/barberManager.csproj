@@ -78,6 +78,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RemAndUpdApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ScheduleMeetingWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +101,9 @@
       <DependentUpon>mainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Person.cs" />
+    <Compile Include="RemAndUpdApp.xaml.cs">
+      <DependentUpon>RemAndUpdApp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ScheduleMeetingWin.xaml.cs">
       <DependentUpon>ScheduleMeetingWin.xaml</DependentUpon>
     </Compile>

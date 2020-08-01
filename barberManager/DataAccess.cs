@@ -36,38 +36,25 @@ namespace barberManager
 
         public bool isPersonExist(string username,string password)
         {
+            conn.Open();
+            SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
+            sqCommand.CommandText = "SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'";
+            SQLiteDataReader sqReader = sqCommand.ExecuteReader();
             try
             {
-                conn.Open();
+                // Always call Read before accessing data.
+                while (sqReader.Read())
+                {
+                    if(username==sqReader.GetString(0) && password==sqReader.GetString(1)) return true;
+                }
             }
-            catch (Exception ex)
+            finally
             {
-                Console.WriteLine(ex);
+                // always call Close when done reading.
+                sqReader.Close();
+                conn.Close();
             }
-            SQLiteDataReader sqlite_datareader;
-            SQLiteCommand cmd;
-            cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM users WHERE username='"+username+"' AND "+"password="+password;
-            try
-            {
-                sqlite_datareader = cmd.ExecuteReader();
-            }
-            catch(Exception ex)
-            {
-                return false;
-            }
-            while (sqlite_datareader.Read())
-            {
-                string myreader = sqlite_datareader.GetString(0);
-            }
-            conn.Close();
-            if (sqlite_datareader!=null) return true;
             return false;
-    }
-
-        public List<Person> RemovePeople()
-        {
-            throw new NotImplementedException();
         }
 
         public DataTable getData(string tableName,string date)
@@ -76,6 +63,18 @@ namespace barberManager
             {
                 DataTable dt = new DataTable();
                 SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT name,start,end FROM clients WHERE date='" + date + "'",conn);
+                da.Fill(dt);
+                return dt;
+            }
+            return null;
+        }
+
+        public DataTable getData(string tableName)
+        {
+            if (tableName == "clients")
+            {
+                DataTable dt = new DataTable();
+                SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT * FROM clients", conn);
                 da.Fill(dt);
                 return dt;
             }
@@ -109,6 +108,11 @@ namespace barberManager
                 conn.Close();
             }
             return true;
+        }
+
+        public List<Person> RemovePeople()
+        {
+            throw new NotImplementedException();
         }
     }
 }
