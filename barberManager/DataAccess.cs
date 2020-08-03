@@ -36,6 +36,7 @@ namespace barberManager
 
         public bool isPersonExist(string username,string password)
         {
+            bool flag = false;
             conn.Open();
             SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
             sqCommand.CommandText = "SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'";
@@ -45,7 +46,7 @@ namespace barberManager
                 // Always call Read before accessing data.
                 while (sqReader.Read())
                 {
-                    if(username==sqReader.GetString(0) && password==sqReader.GetString(1)) return true;
+                    if (username == sqReader.GetString(0) && password == sqReader.GetString(1)) flag = true;                    
                 }
             }
             finally
@@ -54,7 +55,7 @@ namespace barberManager
                 sqReader.Close();
                 conn.Close();
             }
-            return false;
+            return flag;
         }
 
         public DataTable getData(string tableName,string date)
@@ -94,11 +95,13 @@ namespace barberManager
                 // Always call Read before accessing data.
                 while (sqReader.Read())
                 {
-                    //TODO: check immpossible combinations of hours, but first convert to dateTime
                     TimeSpan readedStart = TimeSpan.Parse(sqReader.GetString(2));
                     TimeSpan readedEnd = TimeSpan.Parse(sqReader.GetString(3));
-                    if ((startTime >= readedStart && startTime <= readedEnd) || (endTime >= readedStart && endTime <= readedEnd)) return false;
-                    //Console.WriteLine(sqReader.GetString(2) + " " + sqReader.GetString(3));
+                    if ((startTime >= readedStart && startTime <= readedEnd) || (endTime >= readedStart && endTime <= readedEnd))
+                    {
+                        conn.Close();
+                        return false;
+                    }
                 }
             }
             finally
@@ -110,9 +113,18 @@ namespace barberManager
             return true;
         }
 
-        public List<Person> RemovePeople()
+        public bool RemovePeople(string name,string date,string start,string end)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
+            sqCommand.CommandText = "DELETE FROM clients WHERE name='" + name + "' AND date='" + date +
+                "' AND start='" + start + "' AND end='" + end + "'";
+            //keep the command execution in an int value which keeps the number of rows who deleted.
+            int deletedVal=sqCommand.ExecuteNonQuery();
+            conn.Close();
+            // Value > 0 means that rows was deleted successfully.
+            if (deletedVal > 0) return true;
+            return false;
         }
     }
 }

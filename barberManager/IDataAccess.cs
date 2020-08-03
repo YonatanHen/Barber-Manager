@@ -14,6 +14,6 @@ namespace barberManager
         void AddPerson(string textQuery, string tableName);
         DataTable getData(string tableName);
         DataTable getData(string tableName,string date);
-        List<Person> RemovePeople();
+        bool RemovePeople(string name, string date, string start, string end);
     }
 }
