@@ -41,5 +41,14 @@ namespace barberManager
                 });
             }
         }
+
+        private void selectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Client item = listView1.SelectedItem as Client;
+            DateBox.Text = item.Date;
+            NameBox.Text = item.Name;
+            StartBox.Text = item.Start;
+            EndBox.Text = item.End;
+        }
     }
 }

@@ -30,7 +30,7 @@
             <Label Content="end:" HorizontalAlignment="Left" Margin="121,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
             <TextBox x:Name="EndBox" HorizontalAlignment="Left" Height="23" Margin="197,225,0,0" TextWrapping="Wrap"
                 VerticalAlignment="Top" Width="120" FontSize="18"/>
-            <Button Content="Add" HorizontalAlignment="Left" Margin="378,350,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.ColumnSpan="2" FontFamily="Viner Hand ITC" BorderBrush="White">
+            <Button Content="Add" HorizontalAlignment="Left" Margin="378,350,0,0" VerticalAlignment="Top" Width="75" Click="Add" Grid.ColumnSpan="2" FontFamily="Viner Hand ITC" BorderBrush="White">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
@@ -38,7 +38,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <ListView x:Name="listView1" HorizontalAlignment="Left" Height="268" Margin="363,51,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="ListView_SelectionChanged" BorderBrush="Black" Foreground="Black" Background="White" RenderTransformOrigin="0.479,0.554" Grid.ColumnSpan="2" FontFamily="Viner Hand ITC" FontSize="14" OpacityMask="Black">
+            <ListView x:Name="listView1" HorizontalAlignment="Left" Height="268" Margin="363,51,0,0" VerticalAlignment="Top" Width="300" BorderBrush="Black" Foreground="Black" Background="White" RenderTransformOrigin="0.479,0.554" Grid.ColumnSpan="2" FontFamily="Viner Hand ITC" FontSize="14" OpacityMask="Black">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />

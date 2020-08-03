@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -48,7 +47,7 @@ public partial class ScheduleMeetingWin : Window
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add(object sender, RoutedEventArgs e)
         {
             //Convert appointment start time to dateTime time.
             selectedDate = DateTime.ParseExact(StartBox.Text, "HH:mm", null, System.Globalization.DateTimeStyles.None);
@@ -60,11 +59,6 @@ public partial class ScheduleMeetingWin : Window
             }
             //Show message,don't set an appointment and don't exit from window
             else MessageBox.Show("Illegal hour selected, appointmentes colliding!");
-
-        }
-        
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
         }
     }

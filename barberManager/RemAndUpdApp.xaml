@@ -38,7 +38,8 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <ListView x:Name="listView1" HorizontalAlignment="Left" Height="268" Margin="363,51,0,0" VerticalAlignment="Top" Width="400" BorderBrush="Black" Foreground="Black" Background="White" RenderTransformOrigin="0.479,0.554" Grid.ColumnSpan="2" FontFamily="Viner Hand ITC" FontSize="14" OpacityMask="Black">
+            <ListView x:Name="listView1" HorizontalAlignment="Left" Height="268" Margin="363,51,0,0" VerticalAlignment="Top"
+                      Width="400" BorderBrush="Black" Foreground="Black" Background="White" RenderTransformOrigin="0.479,0.554" Grid.ColumnSpan="2" FontFamily="Viner Hand ITC" FontSize="14" OpacityMask="Black" SelectionChanged="selectionChanged" SelectionMode="Single">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />

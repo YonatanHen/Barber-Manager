@@ -24,9 +24,9 @@ namespace barberManager
         private MainWindow mainWindow;
         public mainMenu(object _content,MainWindow mainWindow)
         {
+            InitializeComponent();
             this.mainWindow = mainWindow;
             this._content = _content;
-            InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,7 +43,8 @@ namespace barberManager
 
         private void remAndupdUser(object sender, RoutedEventArgs e)
         {
-
+            RemAndUpdApp remAndUpd = new RemAndUpdApp();
+            remAndUpd.Show();
         }
     }
 }
