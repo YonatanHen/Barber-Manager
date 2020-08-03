@@ -48,13 +48,13 @@ namespace barberManager
         {
             item = listView1.SelectedItem as Client;
             //Reaching to null items raising an error
-            if (item != null)
+            try
             {
                 DateBox.Text = item.Date;
                 NameBox.Text = item.Name;
                 StartBox.Text = item.Start;
                 EndBox.Text = item.End;
-            }
+            }catch (Exception ex) { }
         }
 
         private void RemoveBtnClick(object sender, RoutedEventArgs e)
