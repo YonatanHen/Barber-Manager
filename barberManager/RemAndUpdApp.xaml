@@ -30,7 +30,7 @@
             <Label Content="end:" HorizontalAlignment="Left" Margin="121,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
             <TextBox x:Name="EndBox" HorizontalAlignment="Left" Height="23" Margin="197,225,0,0" TextWrapping="Wrap"
                 VerticalAlignment="Top" Width="120" FontSize="18"/>
-            <Button Content="Update" HorizontalAlignment="Left" Margin="400,349,0,0" VerticalAlignment="Top" Width="75" FontFamily="Viner Hand ITC" BorderBrush="White" Grid.ColumnSpan="2">
+            <Button Content="Update" HorizontalAlignment="Left" Margin="400,349,0,0" VerticalAlignment="Top" Width="75" FontFamily="Viner Hand ITC" BorderBrush="White" Grid.ColumnSpan="2" Click="updateBtnClick">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
@@ -43,7 +43,7 @@
                       RenderTransformOrigin="0.479,0.554" Grid.ColumnSpan="2" FontFamily="Viner Hand ITC" 
                       FontSize="14" OpacityMask="Black" SelectionChanged="selectionChanged" SelectionMode="Single" SelectedIndex="0">
                 <ListView.View>
-                    <GridView>
+                    <GridView x:Name="gridView1">
                         <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
                         <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Date}"/>
                         <GridViewColumn Header="Start" Width="90" DisplayMemberBinding="{Binding Start}"/>

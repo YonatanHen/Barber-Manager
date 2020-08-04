@@ -22,11 +22,12 @@ namespace barberManager
     {
         DataAccess data;
         Client item;
+        private const string TABLE_NAME = "appointments";
         public RemAndUpdApp()
         {
             InitializeComponent();
             data = new DataAccess();
-            DataTable dTable = data.getData("clients");
+            DataTable dTable = data.getData(TABLE_NAME);
             // Clear the ListView control
             listView1.Items.Clear();
             // Display items in the ListView control
@@ -41,7 +42,7 @@ namespace barberManager
                     End = drow["end"].ToString()
                 });
             }
-            item= listView1.SelectedItem as Client;
+            item = listView1.SelectedItem as Client;
         }
 
         private void selectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,22 +55,74 @@ namespace barberManager
                 NameBox.Text = item.Name;
                 StartBox.Text = item.Start;
                 EndBox.Text = item.End;
-            }catch (Exception ex) { }
+            }
+            catch (Exception ex) { }
         }
 
         private void RemoveBtnClick(object sender, RoutedEventArgs e)
         {
-            if (DateBox.Text != "" && NameBox.Text != "" && StartBox.Text != "" && EndBox.Text != "")
+            if (data.RemovePeople(NameBox.Text, DateBox.Text, StartBox.Text, EndBox.Text) && noEmptyTextBoxes())
             {
-                if (data.RemovePeople(NameBox.Text, DateBox.Text, StartBox.Text, EndBox.Text))
+                listView1.Items.Remove(listView1.SelectedItem);
+                MessageBox.Show("Appointment with " + NameBox.Text + " at " + DateBox.Text + " , " + StartBox.Text
+                    + " has been deleted.");
+                //Initialize the textboxes to the first value from table by default.
+                listView1.SelectedIndex = 0;
+            }
+            else MessageBox.Show("Appointment doesn't found.");
+        }
+
+        private void updateBtnClick(object sender, RoutedEventArgs e)
+        {
+            if (noEmptyTextBoxes())
+            {
+                if (data.isAppointmentExist(NameBox.Text, DateBox.Text, StartBox.Text, EndBox.Text))
+                    MessageBox.Show("Can't change appointment to this values because they are already exist in the system.",
+                        "Existing appointment");
+                else
                 {
-                    listView1.Items.Remove(listView1.SelectedItem);
-                    MessageBox.Show("Appointment with " + NameBox.Text + " at " + DateBox.Text + " , " + StartBox.Text
-                        + " has been deleted.");
-                    //Initialize the textboxes to the first value from table by default.
+                    //Change the values that they will be match to the text boxes values.
+                    item = listView1.SelectedItem as Client;
+                    if (DateBox.Text != item.Date)
+                    {
+                        data.updateAppointment(item.Name, item.Date, item.Start, item.End,
+                        DateBox.Text, item.Date, TABLE_NAME);
+                        item.Date = DateBox.Text;
+                    }
+                    if (NameBox.Text != item.Name)
+                    {
+                        data.updateAppointment(item.Name, item.Date, item.Start, item.End,
+                        NameBox.Text, item.Name, TABLE_NAME);
+                        item.Name = NameBox.Text;
+                    }
+                    if (StartBox.Text != item.Start)
+                    {
+                        data.updateAppointment(item.Name, item.Date, item.Start, item.End,
+                        StartBox.Text, item.Start, TABLE_NAME);
+                        item.Start = StartBox.Text;
+                    }
+                    if (StartBox.Text != item.Start)
+                    {
+                        data.updateAppointment(item.Name, item.Date, item.Start, item.End,
+                        EndBox.Text, item.End, TABLE_NAME);
+                        item.End = EndBox.Text;
+                    }
                     listView1.SelectedIndex = 0;
                 }
-                else MessageBox.Show("Appointment value doesn't found.");
+            }
+        }
+
+
+        /// <summary>
+        /// Utility function=checking if there are empty text boxes, returns boolean value.
+        /// </summary>
+        private bool noEmptyTextBoxes()
+        {
+            if (DateBox.Text != "" && NameBox.Text != "" && StartBox.Text != "" && EndBox.Text != "") return true;
+            else
+            {
+                MessageBox.Show("There are empty text boxes!!!", "Error!");
+                return false;
             }
         }
     }

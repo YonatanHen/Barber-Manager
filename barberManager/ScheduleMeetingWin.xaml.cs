@@ -34,7 +34,7 @@ public partial class ScheduleMeetingWin : Window
             this.selectedDate = selectedDate;
             dateStr= string.Format("{0}/{1}/{2}", selectedDate.Value.Day, selectedDate.Value.Month, selectedDate.Value.Year);
             DateBox.Text = dateStr;
-            DataTable dTable = data.getData("clients",dateStr);
+            DataTable dTable = data.getData("appointments", dateStr);
             // Clear the ListView control
             listView1.Items.Clear();
             // Display items in the ListView control
@@ -54,11 +54,11 @@ public partial class ScheduleMeetingWin : Window
             if (data.isAppointmentPossible(DateBox.Text, StartBox.Text, EndBox.Text))
             {
                 data.AddPerson("(name,date,start,end) VALUES ('" + NameBox.Text + "','" + DateBox.Text +
-                    "','" + StartBox.Text + "','" + EndBox.Text + "')", "clients");
+                    "','" + StartBox.Text + "','" + EndBox.Text + "')", "appointments");
                 this.Close();
             }
             //Show message,don't set an appointment and don't exit from window
-            else MessageBox.Show("Illegal hour selected, appointmentes colliding!");
+            else MessageBox.Show("Illegal hour selected, appointments colliding!");
 
         }
     }
