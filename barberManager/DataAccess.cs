@@ -158,8 +158,13 @@ namespace barberManager
             bool flag = true;
             conn.Open();
             SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
-            sqCommand.CommandText = "UPDATE appointments SET " + field + "='" + value + "' WHERE name='" + name + "' AND date='" + date +
-                "' AND start='" + start + "' AND end='" + end + "' ";
+            sqCommand.CommandText = "UPDATE appointments SET " + field + "=:value WHERE name=@name AND date=@date AND start=@start " +
+                "AND end=@end";
+            sqCommand.Parameters.AddWithValue("@name", name);
+            sqCommand.Parameters.AddWithValue("@date", date);
+            sqCommand.Parameters.AddWithValue("@start", start);
+            sqCommand.Parameters.AddWithValue("@end", end);
+            sqCommand.Parameters.AddWithValue("value", value);
             sqCommand.ExecuteNonQuery();
             conn.Close();
             return flag;

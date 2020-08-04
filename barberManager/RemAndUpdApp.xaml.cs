@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace barberManager
         DataAccess data;
         Client item;
         private const string TABLE_NAME = "appointments";
+        DataRow drow;
         public RemAndUpdApp()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace barberManager
             // Display items in the ListView control
             for (int i = 0; i < dTable.Rows.Count; i++)
             {
-                DataRow drow = dTable.Rows[i];
+                drow = dTable.Rows[i];
                 listView1.Items.Add(new Client(Name = drow["name"].ToString())
                 {
                     Name = drow["name"].ToString(),
@@ -86,27 +88,28 @@ namespace barberManager
                     if (DateBox.Text != item.Date)
                     {
                         data.updateAppointment(item.Name, item.Date, item.Start, item.End,
-                        DateBox.Text, item.Date, TABLE_NAME);
+                        "date", DateBox.Text, TABLE_NAME);
                         item.Date = DateBox.Text;
                     }
                     if (NameBox.Text != item.Name)
                     {
                         data.updateAppointment(item.Name, item.Date, item.Start, item.End,
-                        NameBox.Text, item.Name, TABLE_NAME);
+                        "name", NameBox.Text, TABLE_NAME);
                         item.Name = NameBox.Text;
                     }
                     if (StartBox.Text != item.Start)
                     {
                         data.updateAppointment(item.Name, item.Date, item.Start, item.End,
-                        StartBox.Text, item.Start, TABLE_NAME);
+                        "start", StartBox.Text, TABLE_NAME);
                         item.Start = StartBox.Text;
                     }
                     if (StartBox.Text != item.Start)
                     {
                         data.updateAppointment(item.Name, item.Date, item.Start, item.End,
-                        EndBox.Text, item.End, TABLE_NAME);
+                        "end", EndBox.Text, TABLE_NAME);
                         item.End = EndBox.Text;
                     }
+                    listView1.Items.Refresh();
                     listView1.SelectedIndex = 0;
                 }
             }
