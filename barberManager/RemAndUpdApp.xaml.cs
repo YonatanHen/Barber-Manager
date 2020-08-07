@@ -21,15 +21,13 @@ namespace barberManager
     /// </summary>
     public partial class RemAndUpdApp : Window
     {
-        DataAccess data;
         Client item;
         private const string TABLE_NAME = "appointments";
         DataRow drow;
         public RemAndUpdApp()
         {
             InitializeComponent();
-            data = new DataAccess();
-            DataTable dTable = data.getData(TABLE_NAME);
+            DataTable dTable = DataAccess.getData(TABLE_NAME);
             // Clear the ListView control
             listView1.Items.Clear();
             // Display items in the ListView control
@@ -63,7 +61,7 @@ namespace barberManager
 
         private void RemoveBtnClick(object sender, RoutedEventArgs e)
         {
-            if (data.RemovePeople(NameBox.Text, DateBox.Text, StartBox.Text, EndBox.Text) && noEmptyTextBoxes())
+            if (DataAccess.RemovePeople(NameBox.Text, DateBox.Text, StartBox.Text, EndBox.Text) && noEmptyTextBoxes())
             {
                 listView1.Items.Remove(listView1.SelectedItem);
                 MessageBox.Show("Appointment with " + NameBox.Text + " at " + DateBox.Text + " , " + StartBox.Text
@@ -78,7 +76,7 @@ namespace barberManager
         {
             if (noEmptyTextBoxes())
             {
-                if (data.isAppointmentExist(NameBox.Text, DateBox.Text, StartBox.Text, EndBox.Text))
+                if (DataAccess.isAppointmentExist(NameBox.Text, DateBox.Text, StartBox.Text, EndBox.Text))
                     MessageBox.Show("Can't change appointment to this values because they are already exist in the system.",
                         "Existing appointment");
                 else
@@ -87,25 +85,26 @@ namespace barberManager
                     item = listView1.SelectedItem as Client;
                     if (DateBox.Text != item.Date)
                     {
-                        data.updateAppointment(item.Name, item.Date, item.Start, item.End,
+                        //TODO: data not updated
+                        DataAccess.updateAppointment(item.Name, item.Date, item.Start, item.End,
                         "date", DateBox.Text, TABLE_NAME);
                         item.Date = DateBox.Text;
                     }
                     if (NameBox.Text != item.Name)
                     {
-                        data.updateAppointment(item.Name, item.Date, item.Start, item.End,
+                        DataAccess.updateAppointment(item.Name, item.Date, item.Start, item.End,
                         "name", NameBox.Text, TABLE_NAME);
                         item.Name = NameBox.Text;
                     }
                     if (StartBox.Text != item.Start)
                     {
-                        data.updateAppointment(item.Name, item.Date, item.Start, item.End,
+                        DataAccess.updateAppointment(item.Name, item.Date, item.Start, item.End,
                         "start", StartBox.Text, TABLE_NAME);
                         item.Start = StartBox.Text;
                     }
-                    if (StartBox.Text != item.Start)
+                    if (EndBox.Text != item.End)
                     {
-                        data.updateAppointment(item.Name, item.Date, item.Start, item.End,
+                        DataAccess.updateAppointment(item.Name, item.Date, item.Start, item.End,
                         "end", EndBox.Text, TABLE_NAME);
                         item.End = EndBox.Text;
                     }

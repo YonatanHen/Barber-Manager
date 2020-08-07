@@ -24,17 +24,20 @@ namespace barberManager
 public partial class ScheduleMeetingWin : Window
     {
         private DateTime? selectedDate;
-        private DataAccess data;
         private string dateStr;
 
+        /// <summary>
+        ///  Schedule meeting window constructor which create the window visual parameters and put the date which clicked in the
+        ///  main schedule inside the date text Box.
+        /// </summary>
+        /// <param name="selectedDate"></param>
         public ScheduleMeetingWin(DateTime? selectedDate) //?=indicates that it is a nullable version of the primitive DateTime.
         {
             InitializeComponent();
-            data = new DataAccess();
             this.selectedDate = selectedDate;
             dateStr= string.Format("{0}/{1}/{2}", selectedDate.Value.Day, selectedDate.Value.Month, selectedDate.Value.Year);
             DateBox.Text = dateStr;
-            DataTable dTable = data.getData("appointments", dateStr);
+            DataTable dTable = DataAccess.getData("appointments", dateStr);
             // Clear the ListView control
             listView1.Items.Clear();
             // Display items in the ListView control
@@ -47,13 +50,19 @@ public partial class ScheduleMeetingWin : Window
             }
         }
 
+        /// <summary>
+        /// Save the data that has been entered by the user in the DB when clicking on add button.
+        /// legal values raise message box error.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add(object sender, RoutedEventArgs e)
         {
             //Convert appointment start time to dateTime time.
             selectedDate = DateTime.ParseExact(StartBox.Text, "HH:mm", null, System.Globalization.DateTimeStyles.None);
-            if (data.isAppointmentPossible(DateBox.Text, StartBox.Text, EndBox.Text))
+            if (DataAccess.isAppointmentPossible(DateBox.Text, StartBox.Text, EndBox.Text))
             {
-                data.AddPerson("(name,date,start,end) VALUES ('" + NameBox.Text + "','" + DateBox.Text +
+                DataAccess.AddPerson("(name,date,start,end) VALUES ('" + NameBox.Text + "','" + DateBox.Text +
                     "','" + StartBox.Text + "','" + EndBox.Text + "')", "appointments");
                 this.Close();
             }

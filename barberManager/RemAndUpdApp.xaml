@@ -14,10 +14,6 @@
                     <GradientStop Color="White"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="407*"/>
-                <ColumnDefinition Width="387*"/>
-            </Grid.ColumnDefinitions>
             <Label Content="Date:" HorizontalAlignment="Left" Margin="121,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
             <TextBox x:Name="DateBox" HorizontalAlignment="Left" Height="23" Margin="197,58,0,0" TextWrapping="Wrap"
                  VerticalAlignment="Top" Width="120" FontSize="18"/>

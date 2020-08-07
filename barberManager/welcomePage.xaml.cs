@@ -21,15 +21,22 @@ namespace barberManager
     /// </summary>
     public partial class MainWindow : Window 
     {
-        private DataAccess data;
+        /// <summary>
+        /// main Window constructor.
+        /// </summary>
         public MainWindow()
         {
-            data = new DataAccess();
             InitializeComponent();
         }
+
+        /// <summary>
+        /// When enter button clicked , main page appear if user name and password are correct, else- error message will pop-up. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnterBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (data.isUserExist(unameBox.Text, passwordBox.Password.ToString())) this.Content = new mainMenu(this.Content, this);
+            if (DataAccess.isUserExist(unameBox.Text, passwordBox.Password.ToString())) this.Content = new mainMenu(this.Content, this);
             else MessageBox.Show("Illegal Password/username");
         }
     }
