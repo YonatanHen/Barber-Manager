@@ -36,7 +36,7 @@ namespace barberManager
         /// <param name="e"></param>
         private void EnterBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (DataAccess.isUserExist(unameBox.Text, passwordBox.Password.ToString())) this.Content = new mainMenu(this.Content, this);
+            if (DataAccess.isUserExist(unameBox.Text, passwordBox.Password.ToString(),"welcome")) this.Content = new mainMenu(this.Content, this);
             else MessageBox.Show("Illegal Password/username");
         }
     }

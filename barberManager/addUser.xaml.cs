@@ -20,19 +20,34 @@ namespace barberManager
     /// </summary>
     public partial class addUser : Page
     {
-        public addUser()
+        private object _content;
+        private MainWindow mainWindow;
+        public addUser(object _content, MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
+            this._content = _content;
         }
 
+        /// <summary>
+        /// Adding new user by using AddPerson function from DataAccess class.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddBtnClick(object sender, RoutedEventArgs e)
         {
-
+            if (!DataAccess.isUserExist(uNameBox.Text, passwordBox.Text, "add user"))
+            {
+                DataAccess.AddPerson("(username,password) VALUES ('" + uNameBox.Text + "','" + passwordBox.Text + "')", "users");
+                MessageBox.Show("User has been added!!","Message");
+                uNameBox.Clear();
+                passwordBox.Clear();
+            }else MessageBox.Show("User is already exist!!", "Message");
         }
 
         private void BackBtnClick(object sender, RoutedEventArgs e)
         {
-
+            mainWindow.Content = _content;
         }
     }
 }

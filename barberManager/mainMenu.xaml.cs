@@ -43,5 +43,10 @@ namespace barberManager
         {
             mainWindow.Content = new RemAndUpdApp(this.Content,mainWindow);
         }
+
+        private void addUser(object sender, RoutedEventArgs e)
+        {
+            mainWindow.Content = new addUser(this.Content, mainWindow);
+        }
     }
 }

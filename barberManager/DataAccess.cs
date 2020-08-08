@@ -21,19 +21,21 @@ namespace barberManager
             }
         }
 
-        public static bool isUserExist(string username,string password)
+        public static bool isUserExist(string username,string password,string pageName)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
             {
                 bool flag = false;
                 conn.Open();
                 SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
-                sqCommand.CommandText = "SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'";
+                if(pageName == "welcome") sqCommand.CommandText = "SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'";
+                if (pageName == "add user") sqCommand.CommandText = "SELECT * FROM users WHERE username='" + username + "'";
                 SQLiteDataReader sqReader = sqCommand.ExecuteReader();
                     // Always call Read before accessing data.
                     while (sqReader.Read())
                     {
-                        if (username == sqReader.GetString(0) && password == sqReader.GetString(1)) flag = true;
+                    if (pageName == "welcome" && username == sqReader.GetString(0) && password == sqReader.GetString(1)) flag = true;
+                    else if (pageName == "add user" && username == sqReader.GetString(0)) flag = true;
                     }
                 return flag;
             }

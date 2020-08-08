@@ -17,7 +17,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Menu Height="84" VerticalAlignment="Top" Margin="1,-1,445.4,0" >
-            <MenuItem Header="Add new user" Foreground="#FFE8E8E8" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="305" FontSize="18" FontFamily="Showcard Gothic" BorderBrush="White">
+            <MenuItem Header="Add new user" Foreground="#FFE8E8E8" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="305" FontSize="18" FontFamily="Showcard Gothic" BorderBrush="White" Click="addUser">
                 <MenuItem.Background>
                     <LinearGradientBrush EndPoint="0.5,2" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
