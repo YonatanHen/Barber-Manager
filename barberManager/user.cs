@@ -19,8 +19,8 @@ namespace barberManager
                 set { password = value; } 
              }
         public string Uname {
-                get { return uname; }
-                set { uname = value; }
+                get { return Name; }
+                set { Name = value; }
             }
         }
 }

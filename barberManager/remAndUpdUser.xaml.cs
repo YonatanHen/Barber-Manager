@@ -75,7 +75,7 @@ namespace barberManager
         private void UpdateBtnClick(object sender, RoutedEventArgs e)
         {
             //Check if username isn't match to another username in the database.
-            if (DataAccess.isUserExist(uNameBox.Text, passwordBox.Password.ToString(), "user") && isPasswordsMatch())
+            if (DataAccess.isUserExist(user.Uname, user.Password, "user") && isPasswordsMatch())
             {
                 if (uNameBox.Text != user.Uname)
                 {
