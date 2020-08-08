@@ -21,19 +21,23 @@ namespace barberManager
     /// Interaction logic for ScheduleMeetingWin.xaml
     /// </summary>
 
-public partial class ScheduleMeetingWin : Window
+public partial class ScheduleMeeting : Page
     {
         private DateTime? selectedDate;
         private string dateStr;
+        private object _content;
+        private MainWindow mainWindow;
 
         /// <summary>
         ///  Schedule meeting window constructor which create the window visual parameters and put the date which clicked in the
         ///  main schedule inside the date text Box.
         /// </summary>
         /// <param name="selectedDate"></param>
-        public ScheduleMeetingWin(DateTime? selectedDate) //?=indicates that it is a nullable version of the primitive DateTime.
+        public ScheduleMeeting(object _content,MainWindow mainWindow,DateTime? selectedDate) //?=indicates that it is a nullable version of the primitive DateTime.
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
+            this._content = _content;
             this.selectedDate = selectedDate;
             dateStr= string.Format("{0}/{1}/{2}", selectedDate.Value.Day, selectedDate.Value.Month, selectedDate.Value.Year);
             DateBox.Text = dateStr;
@@ -44,8 +48,9 @@ public partial class ScheduleMeetingWin : Window
             for (int i = 0; i < dTable.Rows.Count; i++)
             {
                 DataRow drow = dTable.Rows[i];
-                listView1.Items.Add(new Client(Name = drow["name"].ToString()) { Name=drow["name"].ToString(),
-                Start=drow["start"].ToString(),
+                listView1.Items.Add(new Client(drow["name"].ToString()) {
+                Name =drow["name"].ToString(),
+                Start =drow["start"].ToString(),
                 End=drow["end"].ToString() });
             }
         }
@@ -64,11 +69,16 @@ public partial class ScheduleMeetingWin : Window
             {
                 DataAccess.AddPerson("(name,date,start,end) VALUES ('" + NameBox.Text + "','" + DateBox.Text +
                     "','" + StartBox.Text + "','" + EndBox.Text + "')", "appointments");
-                this.Close();
+                mainWindow.Content = _content;
             }
             //Show message,don't set an appointment and don't exit from window
             else MessageBox.Show("Illegal hour selected, appointments colliding!");
 
+        }
+
+        private void goBack(object sender, RoutedEventArgs e)
+        {
+            mainWindow.Content = _content;
         }
     }
 }

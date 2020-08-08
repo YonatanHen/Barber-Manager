@@ -20,8 +20,8 @@ namespace barberManager
     /// </summary>
     public partial class mainMenu : Page
     {
-        private object _content;
-        private MainWindow mainWindow;
+        private object _content; // page content
+        private MainWindow mainWindow; // the main window in welcome page xaml file.
         public mainMenu(object _content,MainWindow mainWindow)
         {
             InitializeComponent();
@@ -36,15 +36,12 @@ namespace barberManager
 
         private void calendar_MouseDoubleClick(Object sender, SelectionChangedEventArgs e)
         {
-            ScheduleMeetingWin meetingWin = new ScheduleMeetingWin(Calendar.SelectedDate);
-            meetingWin.Show();
-            Console.WriteLine(Calendar.SelectedDate.ToString());
+            mainWindow.Content = new ScheduleMeeting(this.Content,mainWindow,Calendar.SelectedDate);
         }
 
         private void remAndupdUser(object sender, RoutedEventArgs e)
         {
-            RemAndUpdApp remAndUpd = new RemAndUpdApp();
-            remAndUpd.Show();
+            mainWindow.Content = new RemAndUpdApp(this.Content,mainWindow);
         }
     }
 }

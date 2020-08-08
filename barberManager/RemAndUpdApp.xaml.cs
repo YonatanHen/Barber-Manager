@@ -19,14 +19,18 @@ namespace barberManager
     /// <summary>
     /// Interaction logic for RemAndUpdApp.xaml
     /// </summary>
-    public partial class RemAndUpdApp : Window
+    public partial class RemAndUpdApp : Page
     {
         Client item;
         private const string TABLE_NAME = "appointments";
         DataRow drow;
-        public RemAndUpdApp()
+        private object _content;
+        private MainWindow mainWindow;
+        public RemAndUpdApp(object _content,MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
+            this._content = _content;
             DataTable dTable = DataAccess.getData(TABLE_NAME);
             // Clear the ListView control
             listView1.Items.Clear();
@@ -126,6 +130,11 @@ namespace barberManager
                 MessageBox.Show("There are empty text boxes!!!", "Error!");
                 return false;
             }
+        }
+
+        private void goBackBtn(object sender, RoutedEventArgs e)
+        {
+            mainWindow.Content = _content;
         }
     }
 }

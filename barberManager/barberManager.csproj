@@ -86,7 +86,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ScheduleMeetingWin.xaml">
+    <Page Include="ScheduleMeeting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,8 +110,8 @@
     <Compile Include="RemAndUpdApp.xaml.cs">
       <DependentUpon>RemAndUpdApp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ScheduleMeetingWin.xaml.cs">
-      <DependentUpon>ScheduleMeetingWin.xaml</DependentUpon>
+    <Compile Include="ScheduleMeeting.xaml.cs">
+      <DependentUpon>ScheduleMeeting.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="welcomePage.xaml.cs">
