@@ -39,7 +39,7 @@ namespace barberManager
             mainWindow.Content = new ScheduleMeeting(this.Content,mainWindow,Calendar.SelectedDate);
         }
 
-        private void remAndupdUser(object sender, RoutedEventArgs e)
+        private void remAndupdApp(object sender, RoutedEventArgs e)
         {
             mainWindow.Content = new RemAndUpdApp(this.Content,mainWindow);
         }
@@ -47,6 +47,11 @@ namespace barberManager
         private void addUser(object sender, RoutedEventArgs e)
         {
             mainWindow.Content = new addUser(this.Content, mainWindow);
+        }
+
+        private void remAndupdUser(object sender, RoutedEventArgs e)
+        {
+            mainWindow.Content = new RemAndUpdUser(this.Content, mainWindow);
         }
     }
 }

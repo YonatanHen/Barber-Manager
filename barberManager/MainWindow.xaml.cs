@@ -21,6 +21,8 @@ namespace barberManager
     /// </summary>
     public partial class MainWindow : Window 
     {
+        private static string name;
+        private static string password;
         /// <summary>
         /// main Window constructor.
         /// </summary>
@@ -36,8 +38,23 @@ namespace barberManager
         /// <param name="e"></param>
         private void EnterBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (DataAccess.isUserExist(unameBox.Text, passwordBox.Password.ToString(),"welcome")) this.Content = new mainMenu(this.Content, this);
+            if (DataAccess.isUserExist(unameBox.Text, passwordBox.Password.ToString(), "welcome"))
+            {
+                this.Content = new mainMenu(this.Content, this);
+                name = unameBox.Text;
+                password = passwordBox.Password.ToString();
+            }
             else MessageBox.Show("Illegal Password/username");
+        }
+
+        public string UName {
+            get { return name; }
+            set { name = value; }
+        }
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
         }
     }
 }

@@ -14,8 +14,13 @@ namespace barberManager
         {
             this.password = password;
         }
-        string Password { get; set; } //NOTE: access it with objectname.Password
-        string Uname { get; set; }
-
-    }
+        string Password {
+            get { return password; } 
+            set { password = value; } 
+                }
+        string Uname {
+                get { return uname; }
+                set { uname = value; }
+            }
+        }
 }

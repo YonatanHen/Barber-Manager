@@ -33,7 +33,7 @@
                     </TransformGroup>
                 </MenuItem.RenderTransform>
             </MenuItem>
-            <MenuItem Header="Remove/Update user" Foreground="#FFE8E8E8" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="305" FontSize="18" FontFamily="Showcard Gothic" BorderBrush="White">
+            <MenuItem Header="Remove/Update user" Foreground="#FFE8E8E8" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="28" Width="305" FontSize="18" FontFamily="Showcard Gothic" BorderBrush="White" Click="remAndupdUser">
                 <MenuItem.Background>
                     <LinearGradientBrush EndPoint="0.5,2" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
@@ -51,7 +51,7 @@
             </MenuItem>
             <MenuItem Header="Remove/Update Appointment"  Foreground="#FFE8E8E8" RenderTransformOrigin="0.5,0.5"
                       VerticalAlignment="Center" Height="28" Width="305" FontSize="18" FontFamily="Showcard Gothic"
-                      BorderBrush="White" Click="remAndupdUser" >
+                      BorderBrush="White" Click="remAndupdApp" >
                 <MenuItem.Background>
                     <LinearGradientBrush EndPoint="0.5,2" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
