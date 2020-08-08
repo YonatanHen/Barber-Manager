@@ -15,7 +15,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <TextBox x:Name="uNameBox" HorizontalAlignment="Left" Height="23" Margin="314,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="133"/>
-        <TextBox x:Name="passwordBox" HorizontalAlignment="Left" Height="23" Margin="314,175,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="133"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="23" Margin="314,175,0,0" VerticalAlignment="Top" Width="133"/>
         <Label Content="User name:" HorizontalAlignment="Left" Margin="212,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="212,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}" Width="101"/>
         <Button Content="Go Back" HorizontalAlignment="Left" Margin="340,335,0,0" VerticalAlignment="Top" Width="75"
@@ -46,7 +46,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <TextBox x:Name="confirmPasswordBox" HorizontalAlignment="Left" Height="23" Margin="314,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="133"/>
+        <PasswordBox x:Name="confirmPasswordBox" HorizontalAlignment="Left" Height="23" Margin="314,210,0,0" VerticalAlignment="Top" Width="133"/>
         <Label Content="confirm Password:" HorizontalAlignment="Left" Margin="154,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
     </Grid>
 </Page>

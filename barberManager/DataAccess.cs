@@ -10,7 +10,7 @@ namespace barberManager
 {
     class DataAccess
     {
-        public static void AddPerson(string textQuery,string tableName)
+        public static void AddPerson(string textQuery, string tableName)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
             {
@@ -21,22 +21,22 @@ namespace barberManager
             }
         }
 
-        public static bool isUserExist(string username,string password,string pageName)
+        public static bool isUserExist(string username, string password, string pageName)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
             {
                 bool flag = false;
                 conn.Open();
                 SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
-                if(pageName == "welcome") sqCommand.CommandText = "SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'";
-                if (pageName == "add user") sqCommand.CommandText = "SELECT * FROM users WHERE username='" + username + "'";
+                if (pageName == "welcome") sqCommand.CommandText = "SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'";
+                if (pageName == "user") sqCommand.CommandText = "SELECT * FROM users WHERE username='" + username + "'";
                 SQLiteDataReader sqReader = sqCommand.ExecuteReader();
-                    // Always call Read before accessing data.
-                    while (sqReader.Read())
-                    {
+                // Always call Read before accessing data.
+                while (sqReader.Read())
+                {
                     if (pageName == "welcome" && username == sqReader.GetString(0) && password == sqReader.GetString(1)) flag = true;
-                    else if (pageName == "add user" && username == sqReader.GetString(0)) flag = true;
-                    }
+                    else if (pageName == "user" && username == sqReader.GetString(0)) flag = true;
+                }
                 return flag;
             }
         }
@@ -61,7 +61,7 @@ namespace barberManager
             }
         }
 
-        public static DataTable getData(string tableName,string date)
+        public static DataTable getData(string tableName, string date)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
             {
@@ -91,7 +91,7 @@ namespace barberManager
             }
         }
 
-        public static bool isAppointmentPossible(string date, string start,string end)
+        public static bool isAppointmentPossible(string date, string start, string end)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
             {
@@ -113,7 +113,7 @@ namespace barberManager
             }
         }
 
-        public static bool RemovePeople(string name,string date,string start,string end)
+        public static bool RemovePeople(string name, string date, string start, string end)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
             {
@@ -121,6 +121,21 @@ namespace barberManager
                 SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
                 sqCommand.CommandText = "DELETE FROM appointments WHERE name='" + name + "' AND date='" + date +
                     "' AND start='" + start + "' AND end='" + end + "'";
+                //keep the command execution in an int value which keeps the number of rows who deleted.
+                int deletedVal = sqCommand.ExecuteNonQuery();
+                // Value > 0 means that rows was deleted successfully.
+                if (deletedVal > 0) return true;
+                return false;
+            }
+        }
+
+        public static bool RemoveUser(string username)
+        {
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            {
+                conn.Open();
+                SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
+                sqCommand.CommandText = "DELETE FROM users WHERE username='" + username + "' ";
                 //keep the command execution in an int value which keeps the number of rows who deleted.
                 int deletedVal = sqCommand.ExecuteNonQuery();
                 // Value > 0 means that rows was deleted successfully.
@@ -143,6 +158,22 @@ namespace barberManager
                 sqCommand.Parameters.AddWithValue("@start", start);
                 sqCommand.Parameters.AddWithValue("@end", end);
                 sqCommand.Parameters.AddWithValue("value", value);
+                sqCommand.ExecuteNonQuery();
+                conn.Close();
+                return flag;
+            }
+        }
+
+        public static bool updateUser(string username, string password, string field, string value, string tableName)
+        {
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            {
+                bool flag = true;
+                conn.Open();
+                SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
+                sqCommand.CommandText = "UPDATE users SET " + field + "=:value WHERE username=@username AND password=@password";
+                sqCommand.Parameters.AddWithValue("@username", username);
+                sqCommand.Parameters.AddWithValue("@password", password);
                 sqCommand.ExecuteNonQuery();
                 conn.Close();
                 return flag;

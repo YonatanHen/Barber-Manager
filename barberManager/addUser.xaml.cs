@@ -36,7 +36,7 @@ namespace barberManager
         /// <param name="e"></param>
         private void AddBtnClick(object sender, RoutedEventArgs e)
         {
-            if (!DataAccess.isUserExist(uNameBox.Text, passwordBox.Text, "add user"))
+            if (!DataAccess.isUserExist(uNameBox.Text, passwordBox.Text, "user"))
             {
                 DataAccess.AddPerson("(username,password) VALUES ('" + uNameBox.Text + "','" + passwordBox.Text + "')", "users");
                 MessageBox.Show("User has been added!!","Message");

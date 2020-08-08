@@ -23,12 +23,14 @@ namespace barberManager
     {
         private static string name;
         private static string password;
+        private static object mainContent;
         /// <summary>
         /// main Window constructor.
         /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+            mainContent = this.Content;
         }
 
         /// <summary>
@@ -56,5 +58,8 @@ namespace barberManager
             get { return password; }
             set { password = value; }
         }
+
+        //getter of static object
+        public static object MainContent => mainContent;
     }
 }

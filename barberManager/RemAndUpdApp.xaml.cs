@@ -89,7 +89,6 @@ namespace barberManager
                     item = listView1.SelectedItem as Client;
                     if (DateBox.Text != item.Date)
                     {
-                        //TODO: data not updated
                         DataAccess.updateAppointment(item.Name, item.Date, item.Start, item.End,
                         "date", DateBox.Text, TABLE_NAME);
                         item.Date = DateBox.Text;

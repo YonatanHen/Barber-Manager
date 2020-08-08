@@ -14,11 +14,11 @@ namespace barberManager
         {
             this.password = password;
         }
-        string Password {
-            get { return password; } 
-            set { password = value; } 
-                }
-        string Uname {
+        public string Password {
+                get { return password; } 
+                set { password = value; } 
+             }
+        public string Uname {
                 get { return uname; }
                 set { uname = value; }
             }
