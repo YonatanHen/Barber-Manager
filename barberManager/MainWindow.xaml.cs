@@ -19,10 +19,9 @@ namespace barberManager
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window 
+    public partial class MainWindow : Window
     {
-        private static string name;
-        private static string password;
+        private User loggedInUser;
 
         /// <summary>
         /// main Window constructor.
@@ -42,20 +41,14 @@ namespace barberManager
             if (DataAccess.isUserExist(unameBox.Text, passwordBox.Password.ToString(), "welcome"))
             {
                 this.Content = new mainMenu(this.Content, this);
-                name = unameBox.Text;
-                password = passwordBox.Password.ToString();
+                loggedInUser = new User(passwordBox.Password.ToString(), unameBox.Text);
             }
             else MessageBox.Show("Illegal Password/username");
         }
 
-        public string UName {
-            get { return name; }
-            set { name = value; }
-        }
-        public string Password
-        {
-            get { return password; }
-            set { password = value; }
-        }
+        public User LoggedInUser {
+            get { return loggedInUser; }
+            set { loggedInUser=value;}
+            }
     }
 }

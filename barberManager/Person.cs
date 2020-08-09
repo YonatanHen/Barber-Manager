@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace barberManager
 {
-    abstract class Person
+    public abstract class Person
     {
         private string name;
         public Person(string name) { this.name = name; }

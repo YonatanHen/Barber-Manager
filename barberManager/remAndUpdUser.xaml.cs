@@ -20,7 +20,6 @@ namespace barberManager
     /// </summary>
     public partial class RemAndUpdUser : Page
     {
-        User user;
         private object _content;
         private MainWindow mainWindow;
 
@@ -29,8 +28,7 @@ namespace barberManager
             InitializeComponent();
             this.mainWindow = mainWindow;
             this._content = _content;
-            uNameBox.Text = mainWindow.UName;
-            user = new User(mainWindow.Password, mainWindow.UName);
+            uNameBox.Text =  mainWindow.LoggedInUser.Uname;
         }
 
         /// <summary>
@@ -50,7 +48,7 @@ namespace barberManager
         /// <param name="e"></param>
         private void RemoveBtnClick(object sender, RoutedEventArgs e)
         {
-            if (mainWindow.UName == uNameBox.Text)
+            if (mainWindow.LoggedInUser.Name == uNameBox.Text)
             {
                 //Check if user exists in db.
                 if (DataAccess.isUserExist(uNameBox.Text, passwordBox.Password.ToString(), "user"))
@@ -75,19 +73,19 @@ namespace barberManager
         private void UpdateBtnClick(object sender, RoutedEventArgs e)
         {
             //Check if username isn't match to another username in the database.
-            if (DataAccess.isUserExist(user.Uname, user.Password, "user") && isPasswordsMatch())
+            if (DataAccess.isUserExist(mainWindow.LoggedInUser.Name, mainWindow.LoggedInUser.Password, "user") && isPasswordsMatch())
             {
-                if (uNameBox.Text != user.Uname)
+                if (uNameBox.Text != mainWindow.LoggedInUser.Name)
                 {
-                    DataAccess.updateUser(user.Uname, user.Password,
+                    DataAccess.updateUser(mainWindow.LoggedInUser.Name, mainWindow.LoggedInUser.Password,
                     "username", uNameBox.Text);
-                    user.Uname = uNameBox.Text;
+                    mainWindow.LoggedInUser.Name = uNameBox.Text;
                 }
-                if (passwordBox.Password.ToString() != user.Password)
+                if (passwordBox.Password.ToString() != mainWindow.LoggedInUser.Password)
                 {
-                    DataAccess.updateUser(user.Uname, user.Password,
+                    DataAccess.updateUser(mainWindow.LoggedInUser.Name, mainWindow.LoggedInUser.Password,
                     "password", passwordBox.Password.ToString());
-                    user.Password = passwordBox.Password.ToString();
+                    mainWindow.LoggedInUser.Password = passwordBox.Password.ToString();
                 }
                 MessageBox.Show("Changes saved.", "Confirmation");
             } 

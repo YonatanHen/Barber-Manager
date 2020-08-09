@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace barberManager
 {
-    class User : Person
+    public class User : Person
     {
         private string uname;
         private string password;
