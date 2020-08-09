@@ -27,6 +27,11 @@ namespace barberManager
         private object _content;
         private MainWindow mainWindow;
 
+        /// <summary>
+        /// Remove and update appointment constructor.
+        /// </summary>
+        /// <param name="_content"></param>
+        /// <param name="mainWindow"></param>
         public RemAndUpdApp(object _content,MainWindow mainWindow)
         {
             InitializeComponent();
@@ -50,6 +55,11 @@ namespace barberManager
             item = listView1.SelectedItem as Client;
         }
 
+        /// <summary>
+        /// Change text boxes values according to list view item selction dynamically.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void selectionChanged(object sender, SelectionChangedEventArgs e)
         {
             item = listView1.SelectedItem as Client;
@@ -61,12 +71,17 @@ namespace barberManager
                 StartBox.Text = item.Start;
                 EndBox.Text = item.End;
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
 
+        /// <summary>
+        /// Remove appointment dynamically.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveBtnClick(object sender, RoutedEventArgs e)
         {
-            if (DataAccess.RemovePeople(NameBox.Text, DateBox.Text, StartBox.Text, EndBox.Text) && noEmptyTextBoxes())
+            if (DataAccess.RemoveAppointment(NameBox.Text, DateBox.Text, StartBox.Text, EndBox.Text) && noEmptyTextBoxes())
             {
                 listView1.Items.Remove(listView1.SelectedItem);
                 MessageBox.Show("Appointment with " + NameBox.Text + " at " + DateBox.Text + " , " + StartBox.Text
@@ -77,6 +92,11 @@ namespace barberManager
             else MessageBox.Show("Appointment doesn't found.");
         }
 
+        /// <summary>
+        /// Update appointment dynamically.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void updateBtnClick(object sender, RoutedEventArgs e)
         {
             if (noEmptyTextBoxes())
@@ -132,6 +152,11 @@ namespace barberManager
             }
         }
 
+        /// <summary>
+        /// Return to main menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void goBackBtn(object sender, RoutedEventArgs e)
         {
             mainWindow.Content = _content;

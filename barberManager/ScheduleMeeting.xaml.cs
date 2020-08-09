@@ -76,6 +76,11 @@ public partial class ScheduleMeeting : Page
 
         }
 
+        /// <summary>
+        /// Return to main menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void goBack(object sender, RoutedEventArgs e)
         {
             mainWindow.Content = _content;

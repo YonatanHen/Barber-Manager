@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace barberManager
 {
+    /// <summary>
+    /// Abstract class which represent a person. person can be Client or User
+    /// </summary>
     public abstract class Person
     {
         private string name;

@@ -45,6 +45,11 @@ namespace barberManager
             }else MessageBox.Show("User is already exist!!", "Message");
         }
 
+        /// <summary>
+        /// Return to main menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackBtnClick(object sender, RoutedEventArgs e)
         {
             mainWindow.Content = _content;

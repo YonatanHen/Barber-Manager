@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace barberManager
 {
+    /// <summary>
+    /// Class represent a user that can reach to the system. 
+    /// </summary>
     public class User : Person
     {
-        private string uname;
         private string password;
         public User(string password, string uname):base(uname)
         {

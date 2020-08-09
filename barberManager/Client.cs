@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace barberManager
 {
+    /// <summary>
+    /// Class represent Client at the barber shop.
+    /// The client used to schedule an appointment.
+    /// </summary>
     class Client : Person
     {
         public Client(string name):base(name) {}

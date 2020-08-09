@@ -8,8 +8,16 @@ using System.Data;
 
 namespace barberManager
 {
+    /// <summary>
+    /// Class represent access to the SQLite databse and make related operations on this database.
+    /// </summary>
     class DataAccess
     {
+        /// <summary>
+        /// Adding new person to one of the tables in the db, depends on the value that method receives. 
+        /// </summary>
+        /// <param name="textQuery"></param>
+        /// <param name="tableName"></param>
         public static void AddPerson(string textQuery, string tableName)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
@@ -21,6 +29,13 @@ namespace barberManager
             }
         }
 
+        /// <summary>
+        /// Method checks if user exist in the databse.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="pageName"></param>
+        /// <returns></returns>
         public static bool isUserExist(string username, string password, string pageName)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
@@ -41,6 +56,14 @@ namespace barberManager
             }
         }
 
+        /// <summary>
+        /// Method checks if appointment of some client exist in the database.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="date"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         public static bool isAppointmentExist(string name, string date, string start, string end)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
@@ -61,6 +84,12 @@ namespace barberManager
             }
         }
 
+        /// <summary>
+        /// get data from table in the database depends of date value.
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public static DataTable getData(string tableName, string date)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
@@ -76,6 +105,11 @@ namespace barberManager
             }
         }
 
+        /// <summary>
+        /// get data from table in the database with no dependency of some value.
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
         public static DataTable getData(string tableName)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
@@ -91,6 +125,14 @@ namespace barberManager
             }
         }
 
+        /// <summary>
+        /// Checks if appointment is possible. i.e. there are no appointment that scheduled in the same time of the
+        /// appointment that being cheked. 
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         public static bool isAppointmentPossible(string date, string start, string end)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
@@ -113,7 +155,15 @@ namespace barberManager
             }
         }
 
-        public static bool RemovePeople(string name, string date, string start, string end)
+        /// <summary>
+        /// Remove client/appointment from database.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="date"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public static bool RemoveAppointment(string name, string date, string start, string end)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
             {
@@ -129,6 +179,11 @@ namespace barberManager
             }
         }
 
+        /// <summary>
+        /// Remove user from database.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public static bool RemoveUser(string username)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
@@ -144,6 +199,16 @@ namespace barberManager
             }
         }
 
+        /// <summary>
+        /// Update database specific appointment. 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="date"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="field"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool updateAppointment(string name, string date, string start, string end, string field, string value)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
@@ -164,6 +229,14 @@ namespace barberManager
             }
         }
 
+        /// <summary>
+        /// Update database specific user. 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="field"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool updateUser(string username, string password, string field, string value)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
