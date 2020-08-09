@@ -89,7 +89,7 @@
             </Button.Background>
         </Button>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="450,350,0,0" VerticalAlignment="Top" Width="75"
-            FontFamily="Viner Hand ITC" BorderBrush="White" Click="Button_Click">
+            FontFamily="Viner Hand ITC" BorderBrush="White" Click="Exit">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>

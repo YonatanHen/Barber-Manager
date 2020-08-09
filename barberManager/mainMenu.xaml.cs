@@ -29,26 +29,61 @@ namespace barberManager
             this._content = _content;
         }
 
+        /// <summary>
+        /// Return to the log-in page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.Content = _content;
         }
 
+        /// <summary>
+        /// Closing application.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            mainWindow.Close();
+        }
+
+        /// <summary>
+        /// Click on specific date opens new page with meeting schedule opportunity.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void calendar_MouseDoubleClick(Object sender, SelectionChangedEventArgs e)
         {
             mainWindow.Content = new ScheduleMeeting(this.Content,mainWindow,Calendar.SelectedDate);
         }
 
+        /// <summary>
+        /// Opens remove and update appointment page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void remAndupdApp(object sender, RoutedEventArgs e)
         {
             mainWindow.Content = new RemAndUpdApp(this.Content,mainWindow);
         }
 
+        /// <summary>
+        /// Opens add user page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addUser(object sender, RoutedEventArgs e)
         {
             mainWindow.Content = new addUser(this.Content, mainWindow);
         }
 
+        /// <summary>
+        /// Opens remove and update user page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void remAndupdUser(object sender, RoutedEventArgs e)
         {
             mainWindow.Content = new RemAndUpdUser(this.Content, mainWindow);

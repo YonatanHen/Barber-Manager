@@ -62,7 +62,7 @@ namespace barberManager
                 }
                 else MessageBox.Show("User " + uNameBox.Text + " doesn't exist.");
                 clearBoxes();
-            }
+            }else MessageBox.Show("You can only delete your own account.");
         }
 
         /// <summary>
