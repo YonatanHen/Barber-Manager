@@ -23,7 +23,7 @@ namespace barberManager
         User user;
         private object _content;
         private MainWindow mainWindow;
-        private const string TABLE_NAME = "users";
+
         public RemAndUpdUser(object _content, MainWindow mainWindow)
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace barberManager
         /// <param name="e"></param>
         private void BackBtnClick(object sender, RoutedEventArgs e)
         {
-            mainWindow.Content = _content;
+             mainWindow.Content = _content;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace barberManager
                     {
                         DataAccess.RemoveUser(uNameBox.Text);
                         MessageBox.Show("User " + uNameBox.Text + " has been deleted.");
-                        this.Content = MainWindow.MainContent;
+                        mainWindow.Content = mainWindow.mainPage;
                     }
                 }
                 else MessageBox.Show("User " + uNameBox.Text + " doesn't exist.");
@@ -80,13 +80,13 @@ namespace barberManager
                 if (uNameBox.Text != user.Uname)
                 {
                     DataAccess.updateUser(user.Uname, user.Password,
-                    "username", uNameBox.Text, TABLE_NAME);
+                    "username", uNameBox.Text);
                     user.Uname = uNameBox.Text;
                 }
                 if (passwordBox.Password.ToString() != user.Password)
                 {
                     DataAccess.updateUser(user.Uname, user.Password,
-                    "password", passwordBox.Password.ToString(), TABLE_NAME);
+                    "password", passwordBox.Password.ToString());
                     user.Password = passwordBox.Password.ToString();
                 }
                 MessageBox.Show("Changes saved.", "Confirmation");

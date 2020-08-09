@@ -26,6 +26,7 @@ namespace barberManager
         DataRow drow;
         private object _content;
         private MainWindow mainWindow;
+
         public RemAndUpdApp(object _content,MainWindow mainWindow)
         {
             InitializeComponent();
@@ -90,25 +91,25 @@ namespace barberManager
                     if (DateBox.Text != item.Date)
                     {
                         DataAccess.updateAppointment(item.Name, item.Date, item.Start, item.End,
-                        "date", DateBox.Text, TABLE_NAME);
+                        "date", DateBox.Text);
                         item.Date = DateBox.Text;
                     }
                     if (NameBox.Text != item.Name)
                     {
                         DataAccess.updateAppointment(item.Name, item.Date, item.Start, item.End,
-                        "name", NameBox.Text, TABLE_NAME);
+                        "name", NameBox.Text);
                         item.Name = NameBox.Text;
                     }
                     if (StartBox.Text != item.Start)
                     {
                         DataAccess.updateAppointment(item.Name, item.Date, item.Start, item.End,
-                        "start", StartBox.Text, TABLE_NAME);
+                        "start", StartBox.Text);
                         item.Start = StartBox.Text;
                     }
                     if (EndBox.Text != item.End)
                     {
                         DataAccess.updateAppointment(item.Name, item.Date, item.Start, item.End,
-                        "end", EndBox.Text, TABLE_NAME);
+                        "end", EndBox.Text);
                         item.End = EndBox.Text;
                     }
                     listView1.Items.Refresh();

@@ -144,7 +144,7 @@ namespace barberManager
             }
         }
 
-        public static bool updateAppointment(string name, string date, string start, string end, string field, string value, string tableName)
+        public static bool updateAppointment(string name, string date, string start, string end, string field, string value)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
             {
@@ -164,7 +164,7 @@ namespace barberManager
             }
         }
 
-        public static bool updateUser(string username, string password, string field, string value, string tableName)
+        public static bool updateUser(string username, string password, string field, string value)
         {
             using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
             {
@@ -174,6 +174,7 @@ namespace barberManager
                 sqCommand.CommandText = "UPDATE users SET " + field + "=:value WHERE username=@username AND password=@password";
                 sqCommand.Parameters.AddWithValue("@username", username);
                 sqCommand.Parameters.AddWithValue("@password", password);
+                sqCommand.Parameters.AddWithValue("value", value);
                 sqCommand.ExecuteNonQuery();
                 conn.Close();
                 return flag;
