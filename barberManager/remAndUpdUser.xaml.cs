@@ -98,6 +98,11 @@ namespace barberManager
         /// <returns></returns>
         private bool isPasswordsMatch()
         {
+            if(passwordBox.Password.ToString() == "" || confirmPasswordBox.Password.ToString()== "")
+            {
+                MessageBox.Show("Empty values are not acceptable", "Error!");
+                return false;
+            }
             if (passwordBox.Password.ToString() == confirmPasswordBox.Password.ToString()) return true;
             MessageBox.Show("Password hasn't equals to his confirmation.", "Error!");
             return false;

@@ -36,13 +36,17 @@ namespace barberManager
         /// <param name="e"></param>
         private void AddBtnClick(object sender, RoutedEventArgs e)
         {
-            if (!DataAccess.isUserExist(uNameBox.Text, passwordBox.Text, "user"))
+            if(uNameBox.Text=="" || passwordBox.Text == "")
+            {
+                MessageBox.Show("Empty boxes are not allowed.", "Message");
+            }
+            else if (!DataAccess.isUserExist(uNameBox.Text, passwordBox.Text, "user"))
             {
                 DataAccess.AddPerson("(username,password) VALUES ('" + uNameBox.Text + "','" + passwordBox.Text + "')", "users");
-                MessageBox.Show("User has been added!!","Message");
+                MessageBox.Show("User "+ uNameBox.Text + " has been added!","Message");
                 uNameBox.Clear();
                 passwordBox.Clear();
-            }else MessageBox.Show("User is already exist!!", "Message");
+            }else MessageBox.Show("User is already exist!", "Message");
         }
 
         /// <summary>

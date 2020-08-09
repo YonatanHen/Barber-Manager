@@ -20,7 +20,7 @@ namespace barberManager
         /// <param name="tableName"></param>
         public static void AddPerson(string textQuery, string tableName)
         {
-            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 conn.Open();
                 SQLiteCommand cmd = conn.CreateCommand();
@@ -38,7 +38,7 @@ namespace barberManager
         /// <returns></returns>
         public static bool isUserExist(string username, string password, string pageName)
         {
-            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 bool flag = false;
                 conn.Open();
@@ -66,7 +66,7 @@ namespace barberManager
         /// <returns></returns>
         public static bool isAppointmentExist(string name, string date, string start, string end)
         {
-            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 bool flag = false;
                 conn.Open();
@@ -92,7 +92,7 @@ namespace barberManager
         /// <returns></returns>
         public static DataTable getData(string tableName, string date)
         {
-            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 if (tableName == "appointments")
                 {
@@ -112,7 +112,7 @@ namespace barberManager
         /// <returns></returns>
         public static DataTable getData(string tableName)
         {
-            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 if (tableName == "appointments")
                 {
@@ -135,7 +135,7 @@ namespace barberManager
         /// <returns></returns>
         public static bool isAppointmentPossible(string date, string start, string end)
         {
-            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 conn.Open();
                 SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
@@ -165,7 +165,7 @@ namespace barberManager
         /// <returns></returns>
         public static bool RemoveAppointment(string name, string date, string start, string end)
         {
-            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 conn.Open();
                 SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
@@ -186,7 +186,7 @@ namespace barberManager
         /// <returns></returns>
         public static bool RemoveUser(string username)
         {
-            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 conn.Open();
                 SQLiteCommand sqCommand = (SQLiteCommand)conn.CreateCommand();
@@ -211,7 +211,7 @@ namespace barberManager
         /// <returns></returns>
         public static bool updateAppointment(string name, string date, string start, string end, string field, string value)
         {
-            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 bool flag = true;
                 conn.Open();
@@ -239,7 +239,7 @@ namespace barberManager
         /// <returns></returns>
         public static bool updateUser(string username, string password, string field, string value)
         {
-            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\Users.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 bool flag = true;
                 conn.Open();

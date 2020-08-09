@@ -42,6 +42,8 @@ namespace barberManager
             {
                 this.Content = new mainMenu(this.Content, this);
                 loggedInUser = new User(passwordBox.Password.ToString(), unameBox.Text);
+                passwordBox.Clear();
+                unameBox.Clear();
             }
             else MessageBox.Show("Illegal Password/username");
         }
