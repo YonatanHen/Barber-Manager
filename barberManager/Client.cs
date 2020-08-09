@@ -8,7 +8,7 @@ namespace barberManager
 {
     /// <summary>
     /// Class represent Client at the barber shop.
-    /// The client used to schedule an appointment.
+    /// The client is used to schedule an appointment.
     /// </summary>
     class Client : Person
     {
