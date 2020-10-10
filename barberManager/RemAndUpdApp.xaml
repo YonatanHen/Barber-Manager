@@ -8,24 +8,24 @@
     <Grid Margin="2,0,-2.4,0">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="White"/>
+                <GradientStop Color="#FFFF0707" Offset="1"/>
+                <GradientStop Color="#FF1104E0" Offset="0.44"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label Content="Date:" HorizontalAlignment="Left" Margin="50,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
+        <Label Content="Date:" HorizontalAlignment="Left" Margin="50,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" Foreground="White" Background="{x:Null}"/>
         <TextBox x:Name="DateBox" HorizontalAlignment="Left" Height="23" Margin="126,78,0,0" TextWrapping="Wrap"
                  VerticalAlignment="Top" Width="120" FontSize="18"/>
-        <Label Content="name:" HorizontalAlignment="Left" Margin="50,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
+        <Label Content="name:" HorizontalAlignment="Left" Margin="50,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" Foreground="White" Background="{x:Null}"/>
         <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="126,132,0,0" TextWrapping="Wrap"
             VerticalAlignment="Top" Width="120" FontSize="18"/>
-        <Label Content="start:" HorizontalAlignment="Left" Margin="50,177,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
+        <Label Content="start:" HorizontalAlignment="Left" Margin="50,177,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" Foreground="White" Background="{x:Null}"/>
         <TextBox x:Name="StartBox" HorizontalAlignment="Left" Height="23" Margin="126,188,0,0" TextWrapping="Wrap"
                 VerticalAlignment="Top" Width="120" FontSize="18"/>
-        <Label Content="end:" HorizontalAlignment="Left" Margin="50,235,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
+        <Label Content="end:" HorizontalAlignment="Left" Margin="50,235,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" Foreground="White" Background="{x:Null}"/>
         <TextBox x:Name="EndBox" HorizontalAlignment="Left" Height="23" Margin="126,245,0,0" TextWrapping="Wrap"
                 VerticalAlignment="Top" Width="120" FontSize="18"/>
         <Button Content="Update" HorizontalAlignment="Left" Margin="310,378,0,0" VerticalAlignment="Top" Width="75"
-                    FontFamily="Viner Hand ITC" BorderBrush="White" Click="updateBtnClick">
+                    FontFamily="Viner Hand ITC" BorderBrush="White" Click="updateBtnClick" Foreground="#FF1104E0">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -34,12 +34,17 @@
             </Button.Background>
         </Button>
         <ListView x:Name="listView1" HorizontalAlignment="Left" Height="310" Margin="302,43,0,0" VerticalAlignment="Top"
-                      Width="400" BorderBrush="Black" Foreground="Black" Background="White"
-                      RenderTransformOrigin="0.479,0.554" FontFamily="Viner Hand ITC" 
-                      FontSize="14" OpacityMask="Black" SelectionChanged="selectionChanged" SelectionMode="Single" SelectedIndex="0">
+                      Width="400" BorderBrush="{x:Null}" Foreground="Black" Background="White"
+                      RenderTransformOrigin="0.479,0.554" FontFamily="Viner Hand ITC"
+                      FontSize="14" SelectionChanged="selectionChanged" SelectionMode="Single" SelectedIndex="0">
             <ListView.View>
-                <GridView x:Name="gridView1">
-                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
+                <GridView x:Name="gridView1" >
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="Foreground" Value="#FF1104E0"/>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Date}"/>
                     <GridViewColumn Header="Start" Width="90" DisplayMemberBinding="{Binding Start}"/>
                     <GridViewColumn Header="End" Width="90" DisplayMemberBinding="{Binding End}"/>
@@ -47,7 +52,7 @@
             </ListView.View>
         </ListView>
         <Button Content="Remove" HorizontalAlignment="Left" Margin="170,378,0,0" VerticalAlignment="Top" 
-                    Width="75" FontFamily="Viner Hand ITC" BorderBrush="White" Click="RemoveBtnClick">
+                    Width="75" FontFamily="Viner Hand ITC" BorderBrush="White" Click="RemoveBtnClick" Foreground="#FF1104E0">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -56,7 +61,7 @@
             </Button.Background>
         </Button>
         <Button Content="Go Back" HorizontalAlignment="Left" Margin="450,378,0,0" VerticalAlignment="Top" Width="75"
-            FontFamily="Viner Hand ITC" BorderBrush="White" Click="goBackBtn">
+            FontFamily="Viner Hand ITC" BorderBrush="White" Click="goBackBtn" Foreground="#FF1104E0">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>

@@ -6,25 +6,19 @@
       xmlns:local="clr-namespace:barberManager"
       mc:Ignorable="d" d:DesignWidth="800"
       Title="mainMenu" Height="450" Width="750">
-    <Grid Margin="0,0,0,0.8">
+    <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="White"/>
+                <GradientStop Color="Red" Offset="1"/>
+                <GradientStop Color="#FF0028FF"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Menu  VerticalAlignment="Top" HorizontalAlignment="Stretch">
-            <MenuItem Header="Add new user" Foreground="#FFE8E8E8" HorizontalAlignment="Stretch"
-                      Margin="0,0,0,0" FontSize="14" FontFamily="Showcard Gothic" BorderBrush="White" Click="addUser" RenderTransformOrigin="0.5,0.5" Width="173">
-                <MenuItem.Background>
-                    <LinearGradientBrush EndPoint="0.5,2" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </MenuItem.Background>
+        <Menu  VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,0,0.4,0">
+            <MenuItem Header="Add new user" Foreground="#FF000FFF" HorizontalAlignment="Stretch"
+                      Margin="0,0,0,0" FontSize="14" FontFamily="Showcard Gothic" BorderBrush="#FF000FFF" Click="addUser" RenderTransformOrigin="0.5,0.5" Width="173" Background="White">
                 <MenuItem.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -34,15 +28,9 @@
                     </TransformGroup>
                 </MenuItem.RenderTransform>
             </MenuItem>
-            <MenuItem Header="Remove/Update Appointment"  Foreground="#FFE8E8E8"
+            <MenuItem Header="Remove/Update Appointment"  Foreground="#FF000FFF"
                       HorizontalAlignment="Stretch" FontSize="14" FontFamily="Showcard Gothic"
-                      BorderBrush="White" Click="remAndupdApp" RenderTransformOrigin="0.5,0.5" Width="290">
-                <MenuItem.Background>
-                    <LinearGradientBrush EndPoint="0.5,2" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </MenuItem.Background>
+                      BorderBrush="#FF000FFF" Click="remAndupdApp" RenderTransformOrigin="0.5,0.5" Width="316" Background="White">
                 <MenuItem.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -52,17 +40,10 @@
                     </TransformGroup>
                 </MenuItem.RenderTransform>
             </MenuItem>
-            <MenuItem Header="Remove/Update user" Foreground="#FFE8E8E8" HorizontalAlignment="Stretch"
-                      Height="28" FontSize="14" FontFamily="Showcard Gothic" BorderBrush="White" Click="remAndupdUser" RenderTransformOrigin="0.5,0.5" Width="286">
-                <MenuItem.Background>
-                    <LinearGradientBrush EndPoint="0.5,2" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </MenuItem.Background>
-            </MenuItem>
+            <MenuItem Header="Remove/Update user" Foreground="#FF000FFF" HorizontalAlignment="Stretch"
+                      Height="28" FontSize="14" FontFamily="Showcard Gothic" BorderBrush="#FF000FFF" Click="remAndupdUser" RenderTransformOrigin="0.5,0.5" Width="261" Background="White"/>
         </Menu>
-        <Calendar x:Name="Calendar" RenderTransformOrigin="0.531,0.498" UseLayoutRounding="True" Cursor="Arrow" FontSize="14" FontFamily="Impact" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Animated" AllowDrop="True" Background="#FFDADADA" SelectedDatesChanged="calendar_MouseDoubleClick" Margin="221,91,188.4,126.8" Foreground="{x:Null}" BorderBrush="{x:Null}" AutomationProperties.HelpText="dfdfd">
+        <Calendar x:Name="Calendar" RenderTransformOrigin="0.531,0.498" UseLayoutRounding="True" Cursor="Arrow" FontSize="14" FontFamily="Impact" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Animated" AllowDrop="True" Background="White" SelectedDatesChanged="calendar_MouseDoubleClick" Margin="221,91,188.4,126.8" Foreground="White" BorderBrush="{x:Null}" AutomationProperties.HelpText="dfdfd" Grid.RowSpan="2">
             <Calendar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -72,9 +53,9 @@
                 </TransformGroup>
             </Calendar.RenderTransform>
         </Calendar>
-        <Label Content="select a date:" HorizontalAlignment="Center" Margin="330,33,301.4,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}" Width="119"/>
-        <Button Content="Go Back" HorizontalAlignment="Left" Margin="276,319,0,0" VerticalAlignment="Top" Width="75"
-            FontFamily="Viner Hand ITC" BorderBrush="White" Click="Button_Click">
+        <Label Content="select a date:" HorizontalAlignment="Center" Margin="330,33,301.4,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="White" Background="{x:Null}" Width="119"/>
+        <Button Content="Go Back" HorizontalAlignment="Left" Margin="273,302,0,0" VerticalAlignment="Top" Width="75"
+            FontFamily="Viner Hand ITC" BorderBrush="White" Click="Button_Click" Foreground="#FF1824E7">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -82,8 +63,8 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Exit" HorizontalAlignment="Left" Margin="426,319,0,0" VerticalAlignment="Top" Width="75"
-            FontFamily="Viner Hand ITC" BorderBrush="White" Click="Exit">
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="423,302,0,0" VerticalAlignment="Top" Width="75"
+            FontFamily="Viner Hand ITC" BorderBrush="White" Click="Exit" Foreground="#FF1824E7">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
