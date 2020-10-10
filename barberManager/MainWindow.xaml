@@ -6,25 +6,17 @@
         xmlns:local="clr-namespace:barberManager"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Barber queue manager" Height="450" Width="750" Icon="/imgs/logo.png">
+        Title="Barber queue manager" Height="450" Width="750" Icon="./imgs/logo.png">
     <Page x:Name="mainPage">
         <Grid>
-            <Button x:Name="EnterBtn" Content="Enter" HorizontalAlignment="Left" Margin="300,288,0,0" VerticalAlignment="Top" Width="143" Height="38" Click="EnterBtn_Click" FontFamily="Viner Hand ITC" FontSize="20"/>
-            <Label x:Name="title" Content="Barber Queue Manager" HorizontalAlignment="Left" Height="60" Margin="112.6,19,0,0" VerticalAlignment="Top" Width="451" RenderTransformOrigin="0.263,0.147" FontFamily="Showcard Gothic" FontSize="36" Cursor="SizeNS" Grid.Column="1">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="0.427"/>
-                        <RotateTransform Angle="0.486"/>
-                        <TranslateTransform X="0.385" Y="-0.902"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="unameTxt" Content="User name:" HorizontalAlignment="Left" Height="37" Margin="94.6,115,0,0" VerticalAlignment="Top" Width="125" FontFamily="Viner Hand ITC" FontSize="24" Grid.Column="1"/>
-            <TextBox x:Name="unameBox" HorizontalAlignment="Left" Height="31" Margin="278.6,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="24" Grid.Column="1"/>
-            <Label x:Name="unameTxt_Copy" Content="Password:" HorizontalAlignment="Left" Height="41" Margin="95,177,0,0" VerticalAlignment="Top" Width="117" FontFamily="Viner Hand ITC" FontSize="24"/>
-            <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="31" Margin="278,191,0,0" VerticalAlignment="Top" Width="188" FontSize="24"/>
-            <Image HorizontalAlignment="Left" Height="100" Margin="540,121,0,0" VerticalAlignment="Top" Width="100" Source="/imgs/logo.png"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="./imgs/BarberShop.png" Stretch="UniformToFill" Opacity="0.85"/>
+            </Grid.Background>
+            <Button x:Name="EnterBtn" Content="Enter" HorizontalAlignment="Left" Margin="300,288,0,0" VerticalAlignment="Top" Width="143" Height="38" Click="EnterBtn_Click" FontFamily="Viner Hand ITC" FontSize="20" Background="#FF1527EA" BorderBrush="White" Foreground="White"/>
+            <Label x:Name="unameTxt" Content="User name:" HorizontalAlignment="Left" Height="37" Margin="104,115,0,0" VerticalAlignment="Top" Width="134" FontFamily="Viner Hand ITC" FontSize="24" Background="{x:Null}" Foreground="#FF1527EA" FontWeight="Bold" BorderBrush="#FF0039FC"/>
+            <TextBox x:Name="unameBox" HorizontalAlignment="Left" Height="31" Margin="278.6,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="24" Grid.Column="1" BorderBrush="#FF1527EA" SelectionBrush="#FFC8D7FE"/>
+            <Label x:Name="unameTxt_Copy" Content="Password:" HorizontalAlignment="Left" Height="41" Margin="104,183,0,0" VerticalAlignment="Top" Width="117" FontFamily="Viner Hand ITC" FontSize="24" Background="{x:Null}" Foreground="#FF1527EA" FontWeight="Bold" BorderBrush="#FF0039FC"/>
+            <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="31" Margin="278,191,0,0" VerticalAlignment="Top" Width="188" FontSize="24" BorderBrush="#FF1527EA" SelectionBrush="#FFC8D7FE"/>
         </Grid>
     </Page>
 </Window>
