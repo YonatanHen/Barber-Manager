@@ -38,7 +38,7 @@ namespace barberManager
         /// <returns></returns>
         public static bool isUserExist(string username, string password, string pageName)
         {
-            using (var conn = new SQLiteConnection("Data Source = C:\\Users\\yonat\\Source\\Repos\\YehonatanHen\\Barber-Manager\\barberManager\\BarberManager.db"))
+            using (var conn = new SQLiteConnection("Data Source=C:\\SQLiteDatabaseBrowserPortable\\Data\\BarberManager.db"))
             {
                 bool flag = false;
                 conn.Open();

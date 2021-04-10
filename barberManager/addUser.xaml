@@ -10,8 +10,8 @@
     <Grid Margin="2,0,-2.4,0">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="White"/>
+                <GradientStop Color="red" Offset="1"/>
+                <GradientStop Color="blue"/>
             </LinearGradientBrush>
         </Grid.Background>
         <TextBox x:Name="uNameBox" HorizontalAlignment="Left" Height="23" Margin="314,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132"/>
