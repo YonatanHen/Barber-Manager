@@ -16,8 +16,8 @@
         </Grid.Background>
         <TextBox x:Name="uNameBox" HorizontalAlignment="Left" Height="23" Margin="314,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132"/>
         <TextBox x:Name="passwordBox" HorizontalAlignment="Left" Height="23" Margin="314,175,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="133"/>
-        <Label Content="User name:" HorizontalAlignment="Left" Margin="210,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="212,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
+        <Label Content="User name:" HorizontalAlignment="Left" Margin="210,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="White" Background="{x:Null}"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="212,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="White" Background="{x:Null}"/>
         <Button Content="Go Back" HorizontalAlignment="Left" Margin="340,300,0,0" VerticalAlignment="Top" Width="75"
             FontFamily="Viner Hand ITC" BorderBrush="White" Click="BackBtnClick" Foreground="#FF1D4BE5">
             <Button.Background>
@@ -36,6 +36,6 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Label Content="Add new user" HorizontalAlignment="Left" Margin="262,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="36" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}" FontWeight="Bold"/>
+        <Label Content="Add new user" HorizontalAlignment="Left" Margin="262,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="36" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="White" Background="{x:Null}" FontWeight="Bold"/>
     </Grid>
 </Page>
