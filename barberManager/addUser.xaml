@@ -19,7 +19,7 @@
         <Label Content="User name:" HorizontalAlignment="Left" Margin="210,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="212,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.005,-2.074" FontSize="18" FontFamily="Viner Hand ITC" BorderBrush="Black" Foreground="#FF020202" Background="{x:Null}"/>
         <Button Content="Go Back" HorizontalAlignment="Left" Margin="340,300,0,0" VerticalAlignment="Top" Width="75"
-            FontFamily="Viner Hand ITC" BorderBrush="White" Click="BackBtnClick">
+            FontFamily="Viner Hand ITC" BorderBrush="White" Click="BackBtnClick" Foreground="#FF1D4BE5">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -28,7 +28,7 @@
             </Button.Background>
         </Button>
         <Button Content="Add" HorizontalAlignment="Left" Margin="340,255,0,0" VerticalAlignment="Top" Width="75"
-            FontFamily="Viner Hand ITC" BorderBrush="White" Click="AddBtnClick">
+            FontFamily="Viner Hand ITC" BorderBrush="White" Click="AddBtnClick" Foreground="#FF1D4BE5">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
