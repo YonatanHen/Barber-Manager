@@ -158,6 +158,12 @@
     <Resource Include="imgs\BarberShop.png" />
     <Resource Include="imgs\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Screenshots\Appointments.png" />
+    <Resource Include="Screenshots\Homepage.png" />
+    <Resource Include="Screenshots\Login.png" />
+    <Resource Include="Screenshots\Manage-users.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
