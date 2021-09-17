@@ -5,8 +5,13 @@ Application which manages barber schedule. This project includes programming in 
 
 ### Login page:
 ![A test image](./barberManager/Screenshots/Login.png)
-### Homepage:
-### Appointments managemnet page:
-### Manage users page:
 
-![A test image](image.png)
+### Homepage:
+![A test image](./barberManager/Screenshots/Homepage.png)
+
+### Appointments managemnet page:
+![A test image](./barberManager/Screenshots/Appointments.png)
+
+### Manage users page:
+![A test image](./barberManager/Screenshots/Manage-users.png)
+
