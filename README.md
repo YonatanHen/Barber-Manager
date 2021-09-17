@@ -1,5 +1,6 @@
 # Barber-Manager
-Application which manages barber schedule. This project includes programming in C#, SQLite database and XAML.
+The Barber Manager application manages a barber schedule and helps with making new appointments according to the annual schedule. 
+This is a WPF project based on C# code that interfacing to the SQLite database.
 
 ## Screens:
 
